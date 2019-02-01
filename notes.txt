@@ -1,0 +1,5 @@
+2/1/19
+Tried UCB exploration with double q-learning. It doesn't consistently find the global optimum, which is really bad for how simple the environment is. 
+I think it's because I only use the UCB bonus for action selection. I don't bootstrap from it in the q-learning update. I'll try that next.
+...
+Still no good. The best I've gotten so far is with simple eps-greedy action selection. 

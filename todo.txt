@@ -1,0 +1,25 @@
+make environment
+	discrete state and action space
+	partially observed
+	similar to Clamity
+
+make baseline agent
+	double q learning
+	fully observed with UCB
+	partially observed with UCB
+	fully observed wtih RND
+	partially observed with RND
+
+add unaliasing
+	random binary string
+	try with single agent and multiagent
+	try centralized and decentralized with multiagent
+
+collect and analyze data
+	percent of state space explored
+	average per-agent regret or return
+
+create visualizations
+	plot results
+	video comparing behavior of different kinds of agents
+	
