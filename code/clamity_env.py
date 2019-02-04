@@ -9,14 +9,14 @@ import numpy as np
 class ClamEnv():
     def __init__(self):
         # grid setup
-        self.height = 5
-        self.width = 5
+        self.height = 7
+        self.width = 7
         self.start = (self.height//2,self.width//2)
         self.grid = np.zeros((self.height, self.width))
-        self.grid[1,1] = 2
-        self.grid[1,self.width-2] = 3
-        self.grid[self.height-2,1] = 4
-        self.grid[self.height-2,self.width-2] = 5
+        self.grid[0,0] = 2
+        self.grid[0,self.width-1] = 3
+        self.grid[self.height-1,0] = 4
+        self.grid[self.height-1,self.width-1] = 5
         self.grid[self.start[0], self.start[1]] = 1
         
         self.actions = ("left","right","up","down","stop")
