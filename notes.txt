@@ -2,4 +2,9 @@
 Tried UCB exploration with double q-learning. It doesn't consistently find the global optimum, which is really bad for how simple the environment is. 
 I think it's because I only use the UCB bonus for action selection. I don't bootstrap from it in the q-learning update. I'll try that next.
 ...
-Still no good. The best I've gotten so far is with simple eps-greedy action selection. 
+Still no good. The best I've gotten so far is with simple eps-greedy action selection
+
+2/4/19
+Learning failed to happen because of a major bug, not because of how UCB was implemented. An eps-greedy agent (eps=0.3) gets an average return of slightly over 4 on a 3x3 problem. It completely fails on a larger 7x7 problem. This is not unexpected. The probability of finding a reward through random chance is .3^7 = 0.0002.
+...
+UCB agents also learn the small task but not the larger one. In this case, the agent loses optimism faster for decisions closer to it. So it has no chance to be optimistic about decisions closer to the global optimum. I'm sure I could find an optimism function that decayed slowly enough for learning to occur, but that's not the point of this exercise. 

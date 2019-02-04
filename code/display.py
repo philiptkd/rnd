@@ -42,6 +42,7 @@ class Disp():
         for i in range(self.map_width): # x/col
             for j in range(self.map_height):    # y/row
                 value = 255 - int(Q[j,i]*255/5) # the max value with no exploration bonus is 5
+                value = max(value, 0) # exploration bonus will cause Q > 5
                 color = (value,value,255)
                 pygame.draw.rect(self.surface, color, (i*tilesize,j*tilesize,tilesize,tilesize))    # (left,top,width,height)
 
