@@ -20,8 +20,8 @@ class ActionSpace():
 class ClamEnv():
     def __init__(self):
         # grid setup
-        self.height = 7
-        self.width = 7
+        self.height = 3
+        self.width = 3
         self.start = (self.height//2,self.width//2)
         self.grid = np.zeros((self.height, self.width))
         self.grid[0,0] = 2
