@@ -4,7 +4,7 @@ make environment
 	similar to Clamity
 
 make baseline agent
-	double q learning
+	double q-learning
 	fully observed with UCB
 	partially observed with UCB
 	fully observed with RND
