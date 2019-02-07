@@ -6,7 +6,7 @@ alpha = 0.1
 gamma = 1
 eps0 = 0.3
 episodes = 2000 
-runs = 10
+runs = 5
 c = 2
 lr = .1
 visualize = False
@@ -17,22 +17,14 @@ class NeuralLearner(DoubleQLearner):
         self.step_taker = self.q_learning
         self.num_actions = len(self.env.action_space.actions)
         self.num_states = self.env.width*self.env.height
-        self.reset_graph()
-        
-    # clears the graph and recreates it. for restarting learning in a new run.
-    def reset_graph(self):
-        tf.reset_default_graph()
-
-        # placeholders
         self.inputs = tf.placeholder(tf.float32, shape=(1,self.num_states))
         self.targets = tf.placeholder(tf.float32, shape=(1,self.num_actions))
-       
-        # operations
         self.Q_out_op, self.Q_update_op = self.build_graph()
-        
-        # initialize variables
         self.init_op = tf.global_variables_initializer()
-
+        self.saver = tf.train.Saver()
+        self.sess = tf.Session()
+        self.sess.run(self.init_op)
+        self.saver.save(self.sess, "/tmp/model.ckpt") # save initial parameters
 
     # builds the computation graph for a Q network
     def build_graph(self):
@@ -55,9 +47,7 @@ class NeuralLearner(DoubleQLearner):
         return action, Q
 
     def q_learning(self):
-        self.reset_graph()
-        self.sess = tf.Session()
-        self.sess.run(self.init_op)
+        self.saver.restore(self.sess, "/tmp/model.ckpt")  # restore the initial weights
         for episode in range(episodes):
             eps = eps0 - eps0*episode/episodes # decay epsilon
             done = False
@@ -76,8 +66,6 @@ class NeuralLearner(DoubleQLearner):
                 target_Q = Q    # only chosen action can have nonzero error
                 target_Q[0,action] = target_value
                 self.sess.run(self.Q_update_op, {self.inputs: self.one_hot(state), self.targets: target_Q})
-
-        self.sess.close()
 
     # returns one-hot representation of the given state
     def one_hot(self, state):

@@ -50,7 +50,8 @@ class DoubleQLearner():
         plt.xlabel("Episode")
         plt.ylabel("Average Returns")
         #plt.ylim([0,1])
-        plt.show()
+        #plt.show()
+        plt.savefig('latest_neural_fig.png')
 
     def stepper(self):
         raise NotImplementedError
