@@ -13,3 +13,6 @@ UCB agents also learn the small task but not the larger one. In this case, the a
 UCB agents stopped exploring past the starting state, and I'm not sure why. Adding a small (epsilon) chance of taking a random action fixes this, and UCB agents learn faster than only eps-greedy agents. 
 ...
 The neural network used for the Q function in neural.py is just a single layer with no bias or activation function. So, it's linear regression. I can't get a more complex model to solve the problem. I think the more complex neural nets require more training time than I can give them on my laptop. I might have to switch to a more complex version of the problem if I want to do tests with RND.
+...
+One big problem I was having was exploding gradients. Gradient clipping helped convergence.
+Another problem I was having was execution time. By changing gamma to be < 1 and capping each episode to relatively few timesteps, this was also fixed.

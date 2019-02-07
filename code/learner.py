@@ -41,10 +41,13 @@ class DoubleQLearner():
                         grid = (self.Q1 + self.Q2)/2
                         grid = np.max(grid, axis=1).reshape((self.env.height, self.env.width)) # assigning a value to each state
                         self.disp.process_events(grid, action)
-
+                    
+                    if episode%100 == 0 and episode > 0:
+                        print(np.average(episode_returns[episode-100:episode]))
                 except StopIteration:
                     break
             avg_ep_returns += (episode_returns - avg_ep_returns)/(run+1)
+            
 
         plt.plot(range(self.episodes),avg_ep_returns)
         plt.xlabel("Episode")
@@ -52,6 +55,7 @@ class DoubleQLearner():
         #plt.ylim([0,1])
         #plt.show()
         plt.savefig('latest_neural_fig.png')
+        print(np.average(avg_ep_returns[-500:]))
 
     def stepper(self):
         raise NotImplementedError

@@ -3,10 +3,10 @@ from learner import DoubleQLearner
 import tensorflow as tf
 
 alpha = 0.1
-gamma = 1
+gamma = .99
 eps0 = 0.3
-episodes = 2000 
-runs = 5
+episodes = 5000 
+runs = 1
 c = 2
 lr = .1
 visualize = False
@@ -28,13 +28,16 @@ class NeuralLearner(DoubleQLearner):
 
     # builds the computation graph for a Q network
     def build_graph(self):
-        #h = tf.layers.dense(self.inputs, 16, activation=tf.nn.relu, name="h")
-        #outputs = tf.layers.dense(h, len(self.env.actions), activation=None, name="outputs")
-        W = tf.Variable(tf.random_uniform([self.num_states,self.num_actions],0,0.01))
-        outputs = tf.matmul(self.inputs,W)
-        
+        h = tf.layers.dense(self.inputs, 16, activation=tf.nn.relu, kernel_initializer=tf.initializers.random_normal, name="h")
+        outputs = tf.layers.dense(h, self.num_actions, activation=None, kernel_initializer=tf.initializers.random_normal, name="outputs")
+        #W = tf.Variable(tf.random_uniform([self.num_states,self.num_actions],-.1,0.1))
+        #b = tf.Variable(tf.zeros([1,self.num_actions]))
+        #outputs = tf.matmul(self.inputs,W)
         loss = tf.reduce_sum(tf.square(self.targets - outputs))
-        update = tf.train.GradientDescentOptimizer(learning_rate=lr).minimize(loss)
+        optimizer = tf.train.AdamOptimizer()
+        gradients, variables = zip(*optimizer.compute_gradients(loss))
+        gradients, _ = tf.clip_by_global_norm(gradients, 1.0)
+        update = optimizer.apply_gradients(zip(gradients, variables))
         return outputs, update
 
     # returns eps-greedy action with respect to Q
@@ -43,15 +46,20 @@ class NeuralLearner(DoubleQLearner):
         if self.env.action_space.np_random.uniform() < eps:
             action = self.env.action_space.sample()
         else:
-            action = self.env.action_space.np_random.choice(np.flatnonzero(Q == Q.max())) # to select argmax randomly
+            max_actions = np.where(np.ravel(Q) == Q.max())[0]
+            if len(max_actions) == 0:
+                print(Q)
+            action = self.env.action_space.np_random.choice(max_actions) # to select argmax randomly
         return action, Q
 
     def q_learning(self):
-        self.saver.restore(self.sess, "/tmp/model.ckpt")  # restore the initial weights
+        self.saver.restore(self.sess, "/tmp/model.ckpt")  # restore the initial weights for each new run
         for episode in range(episodes):
             eps = eps0 - eps0*episode/episodes # decay epsilon
             done = False
+            t = 0
             while not done:
+                t += 1
                 state = self.env.state
                 action, Q = self.get_eps_action(self.one_hot(state), eps)
                 _, reward, done, _ = self.env.step(action)
@@ -66,6 +74,10 @@ class NeuralLearner(DoubleQLearner):
                 target_Q = Q    # only chosen action can have nonzero error
                 target_Q[0,action] = target_value
                 self.sess.run(self.Q_update_op, {self.inputs: self.one_hot(state), self.targets: target_Q})
+
+                if t>20:
+                    self.env.reset()
+                    break
 
     # returns one-hot representation of the given state
     def one_hot(self, state):
