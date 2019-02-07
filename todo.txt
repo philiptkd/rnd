@@ -7,7 +7,7 @@ make baseline agent
 	double q learning
 	fully observed with UCB
 	partially observed with UCB
-	fully observed wtih RND
+	fully observed with RND
 	partially observed with RND
 
 add unaliasing
