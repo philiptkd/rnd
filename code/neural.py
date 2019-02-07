@@ -1,89 +1,83 @@
 import numpy as np
 from learner import DoubleQLearner
-import tensorflow
+import tensorflow as tf
 
 alpha = 0.1
 gamma = 1
-eps = 0.3
-episodes = 10000
-runs = 100
+eps = 0.1
+episodes = 2000 
+runs = 1
 c = 2
+lr = .1
 visualize = False
 
 class NeuralLearner(DoubleQLearner):
-    def __init__(self):
-        super().__init__()
-        self.step_taker = self.double_q
+    def __init__(self, episodes, runs):
+        super().__init__(episodes, runs)
+        self.step_taker = self.q_learning
+        self.reset_graph()
+        
+    # clears the graph and recreates it. for restarting learning in a new run.
+    def reset_graph(self):
+        tf.reset_default_graph()
 
+        # placeholders
+        self.inputs = tf.placeholder(tf.float32, shape=(1,self.env.width*self.env.height))
+        self.targets = tf.placeholder(tf.float32, shape=(1,len(self.env.actions)))
+       
+        # operations
+        self.Q_out_op, self.Q_update_op = self.build_graph()
+        
+        # initialize variables
+        self.init_op = tf.global_variables_initializer()
+
+
+    # builds the computation graph for a Q network
     def build_graph(self):
-        inputs = tf.placeholder(tf.int32, shape=(self.env.width*self.env.height,))
-        targets = tf.placeholder(tf.float32, shape=(len(self.env.actions),))
-        h = tf.layers.dense(inputs, 64, activation=tf.nn.relu, name="h")
-        dropout = tf.layers.dropout(h1, .2, name="dropout")
-        outputs = tf.layers.dense(dropout, len(self.env.actions), activation=None, name="outputs")
-        loss = tf.reduce_sum(tf.square(targets - outputs))
-        update = tf.train.Adam().minimize(loss)
-        return inputs, targets, outputs, update
+        h = tf.layers.dense(self.inputs, 16, activation=tf.nn.relu, name="h")
+        outputs = tf.layers.dense(h, len(self.env.actions), activation=None, name="outputs")
+        loss = tf.reduce_sum(tf.square(self.targets - outputs))
+        update = tf.train.GradientDescentOptimizer(learning_rate=lr).minimize(loss)
+        return outputs, update
 
-    def get_eps_action(self, one_hot_state, Q1_out_op, Q2_out_op, eps=eps):
-        if env.np_random.uniform() < eps:
-            action = env.np_random.randint(0, len(env.actions))
+    # returns eps-greedy action with respect to Q
+    def get_eps_action(self, one_hot_state, eps=eps):
+        Q = self.sess.run(self.Q_out_op, {self.inputs: one_hot_state})
+        if self.env.np_random.uniform() < eps:
+            action = self.env.np_random.randint(0, len(self.env.actions))
         else:
-            Q1 = self.sess.run([Q1_out_op], {self.inputs: one_hot_state})
-            Q2 = self.sess.run([Q2_out_op], {self.inputs: one_hot_state})
-            Q = Q1 + Q2
-            action = env.np_random.choice(np.flatnonzero(Q == Q.max())) # to select argmax randomly
-        return action, Q1, Q2
+            action = self.env.np_random.choice(np.flatnonzero(Q == Q.max())) # to select argmax randomly
+        return action, Q
 
-    def get_greedy_action(self, one_hot_state, Q_out_op):
-        Q = self.sess.run([Q_out_op], {self.inputs: one_hot_state})
-        action = env.np_random.choice(np.flatnonzero(Q == Q.max())) # to select argmax randomly
-        return action, Q 
-
-    def double_q(self, single_q=False):
-        # defining the computational graph
-        with tf.variable_scope("Q1"):
-            self.inputs, self.targets, Q1_out_op, Q1_update_op = self.build_graph()
-        with tf.variable_scope("Q2"):
-            _, _, Q2_out_op, Q2_update_op = self.build_graph()
-        init_op = tf.global_variables_initializer()
-
+    def q_learning(self):
+        self.reset_graph()
         self.sess = tf.Session()
-        self.sess.run(init_op)
+        self.sess.run(self.init_op)
         for episode in range(episodes):
             done = False
             while not done:
-                # action is argmax of Q1+Q2 from forward pass through both networks                
                 state = self.env.state
-                action, Q1, Q2 = self.get_eps_action(self.one_hot(state), Q1_out_op, Q2_out_op)
-
+                action, Q = self.get_eps_action(self.one_hot(state))
                 reward, done = self.env.step(self.env.actions[action])
                 next_state = self.env.state
-
                 yield self.env.actions[action], reward, done
                 
-                step = (state,action,reward,next_state,done)
-                if single_q:
-                    double_q_update(Q1, Q1_update_op, Q1_out_op, Q1_out_op, step)
-                elif env.np_random.uniform() < 0.5:
-                    double_q_update(Q1, Q1_update_op, Q1_out_op, Q2_out_op, step)
-                else:
-                    double_q_update(Q2, Q2_update_op, Q2_out_op, Q1_out_op, step)
+                # q-learning update
+                target_value = reward
+                if not done:
+                    _, Q_next = self.get_eps_action(self.one_hot(next_state), eps=0)    # greedy action
+                    target_value += gamma*np.max(Q_next)
+                target_Q = Q    # only chosen action can have nonzero error
+                target_Q[0,action] = target_value
+                self.sess.run(self.Q_update_op, {self.inputs: self.one_hot(state), self.targets: target_Q})
 
-    # update Q1 towards Q2 estimate of value of Q1's max action
-    def double_q_update(self, Q1, Q1_update_op, Q1_out_op, Q2_out_op, step):
-        state, action, reward, next_state, done = step
-        action_target = reward
-        if not done:
-            next_action,_ = self.get_greedy_action(self.one_hot(next_state), Q1_out_op) # Q1's best next action
-            _,Q2 = self.get_greedy_action(self.one_hot(next_state), Q2_out_op)
-            action_target += gamma*Q2[next_action]  # Q1's best action evaluated by Q2
-        q_target = Q1
-        q_target[action] = action_target
-        sess.run([Q1_update_op], {inputs: self.one_hot(state), targets: q_target})
-        
+        self.sess.close()
+
+    # returns one-hot representation of the given state
     def one_hot(self, state):
         one_hot_state = np.zeros(self.env.width*self.env.height)
         one_hot_state[state[0]*self.env.width + state[1]] = 1
-        return one_hot_state
+        return np.array([one_hot_state])    # add batch dimension of length 1
 
+learner = NeuralLearner(episodes, runs)
+learner.main()

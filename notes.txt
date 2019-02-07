@@ -7,4 +7,7 @@ Still no good. The best I've gotten so far is with simple eps-greedy action sele
 2/4/19
 Learning failed to happen because of a major bug, not because of how UCB was implemented. An eps-greedy agent (eps=0.3) gets an average return of slightly over 4 on a 3x3 problem. It completely fails on a larger 7x7 problem. This is not unexpected. The probability of finding a reward through random chance is .3^7 = 0.0002.
 ...
-UCB agents also learn the small task but not the larger one. In this case, the agent loses optimism faster for decisions closer to it. So it has no chance to be optimistic about decisions closer to the global optimum. I'm sure I could find an optimism function that decayed slowly enough for learning to occur, but that's not the point of this exercise. 
+UCB agents also learn the small task but not the larger one. In this case, the agent loses optimism faster for decisions closer to it. So it has no chance to be optimistic about decisions closer to the global optimum. I'm sure I could find an optimism function that decayed slowly enough for learning to occur, but that's not the point of this exercise.
+
+2/6/19
+UCB agents stopped exploring past the starting state, and I'm not sure why. Adding a small (epsilon) chance of taking a random action fixes this, and UCB agents learn faster than only eps-greedy agents. 
