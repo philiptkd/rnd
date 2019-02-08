@@ -5,8 +5,7 @@ make environment
 
 make baseline agent
 	double q-learning
-	fully observed with UCB
-	partially observed with UCB
+	tabular with UCB
 	fully observed with RND
 	partially observed with RND
 
@@ -22,4 +21,22 @@ collect and analyze data
 create visualizations
 	plot results
 	video comparing behavior of different kinds of agents
-	
+
+
+
+RND
+----------
+target network: fixed and randomly initialized
+predictor network: same architecture as target. trained to minimize MSE between its and target's outputs, given observations as inputs
+the MSE above is the intrinsic reward for the agent
+the agent's network needs two heads, one each for extrinsic and intrinsic rewards
+reward normalization: divide intrinsic reward by running estimate of stddev of intrinsic returns (esitmates. i.e. of intrinsic value fn)
+observation normalization: whiten each dimension. subtract running mean and divide by running standard deviation. clip in [-5, 5]
+	initialize the means, stddevs for normalization with a few steps of a random agent.
+	used only for target and predictor networks, not policy network
+
+todo:
+make RND agent
+see how fast predictor learns
+compare exploration of RND agent with random agent
+
