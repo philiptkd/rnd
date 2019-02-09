@@ -16,3 +16,9 @@ The neural network used for the Q function in neural.py is just a single layer w
 ...
 One big problem I was having was exploding gradients. Gradient clipping helped convergence.
 Another problem I was having was execution time. By changing gamma to be < 1 and capping each episode to relatively few timesteps, this was also fixed.
+
+2/8/19
+I've run into the problem of needing to run part of a graph, interact with the environment, and then run the rest of the graph. Specifically, I need the output of the Q network in order to choose an action. Only after the environment responds to that action with a reward can I calculate gradients. There is a feature called "partial run" in Tensorflow that might solve this problem, but it's still experimental. I also don't want to spend the time on it right now. I will have to be ok with running parts of graphs twice per step.
+...
+"we normalized the intrinsic reward by dividing it by a running estimate of the standard deviations of the intrinsic returns"
+This sentence in the paper confused me. To me, "returns" implies episodic rewards, but they explicitly say they use nonepisodic intrinsic rewards. So I thought maybe they were referring to Q-value estimates, since those estimate returns in the episodic case. But in their ppo_agent.py, line #257, it looks like they divide by the standard deviation of intrinsic *rewards*. So that's what I'm going to do. It also makes more sense.
