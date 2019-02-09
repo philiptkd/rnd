@@ -30,8 +30,8 @@ class DoubleQLearner():
             episode = 0
             while True:
                 try:
-                    action, r, done = next(step) 
-                    G = r + gamma*G
+                    action, r_ext, r_int, done = next(step) 
+                    G = r_ext + gamma*G
                     if done:
                         episode_returns[episode] = G    # record return for each episode
                         episode += 1

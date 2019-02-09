@@ -11,6 +11,7 @@ episodes = 5000
 runs = 20
 c = 2
 lr = .1
+rand_init_episodes = 100
 
 class RNDLearner(DoubleQLearner):
     def __init__(self, episodes, runs):
@@ -94,29 +95,49 @@ class RNDLearner(DoubleQLearner):
 
 
     # take step in environment and gather/update information
-    def step(self):
+    def step(self, eps):
         state = self.env.state
-        one_hot = self.one_hot(state)   # one-hot representation of current state
-        self.obs_stats.update(one_hot)  # update observation statistics
-        whitened_state = (one_hot - self.obs_stats.mean)/np.sqrt(self.obs_stats.var) # whitened observation for pred and target nets
+        self.obs_stats.update(self.one_hot(state))  # update observation statistics
+        whitened_state = (self.one_hot(state) - self.obs_stats.mean)/np.sqrt(self.obs_stats.var) # whitened observation for pred and target nets
 
-        action, Q_ext, Q_int = self.get_eps_action(one_hot, eps)    # take action wrt Q_ext+Q_int
+        action, Q_ext, Q_int = self.get_eps_action(self.one_hot(state), eps)    # take action wrt Q_ext+Q_int
         _, reward_ext, done, _ = self.env.step(action)  # get external reward by acting in the environment
+        next_state = self.env.state
 
         reward_int = self.sess.run(self.int_reward_op, {self.aux_inputs_ph: whitened_state})  # get intrinsic reward
         self.int_reward_stats.update(reward_int)    # update running statistics for intrinsic reward
         reward_int = reward_int/np.sqrt(self.int_reward_stats.var)  # normalize intrinsic reward
         
-        next_state = self.env.state
-        yield self.env.action_space.actions[action], reward_ext, reward_int, done   # report data for analysis/plotting/visualization
-        
-        return state, whitened_state, action, reward_ext, reward_int, next_state, Q_ext, Q_int
+        return state, whitened_state, action, reward_ext, reward_int, next_state, Q_ext, Q_int, done
+
+
+    # initialize intrinsic reward and observation statistics with experience from a random agent
+    def initialize_stats(self):
+        # reset statistics to zero
+        self.int_reward_stats.reset()
+        self.obs_stats.reset()
+       
+        # initialize observation stats first
+        obs_list = []
+        for episode in range(rand_init_episodes):
+            done = False
+            while not done:
+                observation = self.one_hot(self.env.state)  #TODO: change this (and all one_hot calls) when partially observing
+                self.obs_stats.update(observation)  # update obs stats
+                obs_list.append(observation)    # save to list for use with intrinsic reward stats
+                action = self.env.action_space.sample() # take an action to give us another observation
+                _, _, done, _ = self.env.step(action)
+
+        # use observations to create whitened states for input to the aux networks
+        for observation in obs_list:
+            whitened_state = (observation - self.obs_stats.mean)/np.sqrt(self.obs_stats.var) # whitened observation for pred and target nets
+            reward_int = self.sess.run(self.int_reward_op, {self.aux_inputs_ph: whitened_state})  # get intrinsic reward
+            self.int_reward_stats.update(reward_int)    # update int_reward stats
 
 
     def q_learning(self):
         self.saver.restore(self.sess, "/tmp/model.ckpt")  # restore the initial weights for each new run
-        self.int_reward_stats.reset()   # get rid of old statistics for each new run
-        self.obs_stats.reset()
+        self.initialize_stats() # reset all statistics to zero and then initialize with random agent
 
         for episode in range(episodes):
             eps = eps0 - eps0*episode/episodes # decay epsilon
@@ -126,7 +147,8 @@ class RNDLearner(DoubleQLearner):
                 t += 1
 
                 # take step in environment and gather/update information
-                state, whitened_state, action, reward_ext, reward_int, next_state, Q_ext, Q_int = self.step()
+                state, whitened_state, action, reward_ext, reward_int, next_state, Q_ext, Q_int, done = self.step(eps)
+                yield self.env.action_space.actions[action], reward_ext, reward_int, done   # report data for analysis/plotting/visualization
 
                 # q-learning update for both Q-value heads
                 target_value_ext = reward_ext
@@ -143,7 +165,7 @@ class RNDLearner(DoubleQLearner):
                 target_Q_int[0,action] = target_value_int
 
                 # update Q network through both Q-value heads
-                self.sess.run(self.Q_update_op, {self.inputs_ph: one_hot, self.targets_ext_ph: target_Q_ext, 
+                self.sess.run(self.Q_update_op, {self.inputs_ph: self.one_hot(state), self.targets_ext_ph: target_Q_ext, 
                     self.targets_int_ph: target_Q_int})
 
                 # update predictor network
@@ -159,5 +181,5 @@ class RNDLearner(DoubleQLearner):
         one_hot_state[state[0]*self.env.width + state[1]] = 1
         return np.array([one_hot_state])    # add batch dimension of length 1
 
-learner = NeuralLearner(episodes, runs)
+learner = RNDLearner(episodes, runs)
 learner.main()

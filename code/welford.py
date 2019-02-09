@@ -4,10 +4,6 @@ class Welford():
     def __init__(self):
         self.reset()
 
-    def reset(self):
-        self.count = 0
-        self.mean = 0
-        self.M2 = 0
 
     # for a new value newValue, compute the new count, new mean, the new M2.
     # mean accumulates the mean of the entire dataset
@@ -20,3 +16,10 @@ class Welford():
         delta2 = newValue - self.mean
         self.M2 += delta * delta2
         self.var = self.M2 / self.count
+
+
+    def reset(self):
+        self.count = 0
+        self.mean = 0
+        self.M2 = 0
+
