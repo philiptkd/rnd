@@ -30,9 +30,6 @@ class NeuralLearner(DoubleQLearner):
     def build_graph(self):
         h = tf.layers.dense(self.inputs, 16, activation=tf.nn.relu, kernel_initializer=tf.initializers.random_normal, name="h")
         outputs = tf.layers.dense(h, self.num_actions, activation=None, kernel_initializer=tf.initializers.random_normal, name="outputs")
-        #W = tf.Variable(tf.random_uniform([self.num_states,self.num_actions],-.1,0.1))
-        #b = tf.Variable(tf.zeros([1,self.num_actions]))
-        #outputs = tf.matmul(self.inputs,W)
         loss = tf.reduce_sum(tf.square(self.targets - outputs))
         optimizer = tf.train.AdamOptimizer()
         gradients, variables = zip(*optimizer.compute_gradients(loss))
@@ -64,7 +61,7 @@ class NeuralLearner(DoubleQLearner):
                 action, Q = self.get_eps_action(self.one_hot(state), eps)
                 _, reward, done, _ = self.env.step(action)
                 next_state = self.env.state
-                yield self.env.action_space.actions[action], reward, done
+                yield state, self.env.action_space.actions[action], reward, 0, next_state, done # 0 is intrinsic reward
                 
                 # q-learning update
                 target_value = reward

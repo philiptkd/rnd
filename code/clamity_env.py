@@ -60,7 +60,7 @@ class ClamEnv():
             reward = 0
             done = False
 
-        return self.list2int(self.state), reward, done, {} # openai gym convention
+        return self.state, reward, done, {} # openai gym convention
 
     # converts state list to int
     def list2int(self, state):

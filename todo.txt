@@ -42,3 +42,6 @@ compare exploration of RND agent with random agent
 
 
 making RND agent that only partially observes environment will require changing how states are represented
+
+I didn't clip when normalizing, yet
+It looks like they combined everything into a single loss function
