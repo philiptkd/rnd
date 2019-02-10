@@ -6,7 +6,7 @@ alpha = 0.1
 gamma = 1
 eps = 0.3
 c = 2
-visualize = False
+visualize = True
 
 class DoubleQLearner():
     def __init__(self, episodes, runs):
@@ -14,9 +14,9 @@ class DoubleQLearner():
         self.step_taker = self.stepper
         self.episodes = episodes
         self.runs = runs
-        if visualize:
-            from display import Disp
-            self.disp = Disp(self.env)
+        #if visualize:
+        #    from display import Disp
+        #    self.disp = Disp(self.env)
 
 
     def main(self):
@@ -40,6 +40,7 @@ class DoubleQLearner():
                         self.visualizer(episode, state, action, next_state)
                     if episode%100 == 99:
                         print("avg return: ", np.average(episode_returns[episode-100:episode]))
+                        print(r_int)
                 except StopIteration:   # happens when the step generator completes all episodes for this run
                     break
             avg_ep_returns += (episode_returns - avg_ep_returns)/(run+1)
@@ -48,8 +49,8 @@ class DoubleQLearner():
         plt.xlabel("Episode")
         plt.ylabel("Average Returns")
         #plt.ylim([0,1])
+        plt.savefig('rnd_full_obs_3x3.png')
         plt.show()
-        #plt.savefig('latest_neural_fig.png')
         print(np.average(avg_ep_returns[-500:]))
 
 
@@ -59,7 +60,7 @@ class DoubleQLearner():
         for row in range(self.env.height):
             for col in range(self.env.width):
                 grid_point = [row, col]
-                Q_ext, Q_int = self.sess.run([self.Q_ext_out_op, self.Q_int_out_op], {self.inputs_ph: self.one_hot(grid_point)})
+                Q_ext, Q_int = self.sess.run([self.Q_ext, self.Q_int], {self.inputs_ph: self.one_hot(grid_point)})
                 grid[row,col,:,0] = Q_ext
                 grid[row,col,:,1] = Q_int
         
@@ -68,10 +69,10 @@ class DoubleQLearner():
         #grid = np.max(grid, axis=1).reshape((self.env.height, self.env.width)) # assigning a value to each state
         
         #print(np.max(grid[:,:,:,0], 2)) # max values for Q_ext
-        print(grid[:,:,:,1]) # max values for Q_int
-        grid = np.max(grid[...,0]+grid[...,1],2) # max values for Q_ext+Q_int
+        print(np.average(grid[:,:,:,1], 2)) # average Q_int values
+        #grid = np.max(grid[...,0]+grid[...,1],2) # max values for Q_ext+Q_int
 
-        self.disp.process_events(grid, state, action, next_state)
+        #self.disp.process_events(grid, state, action, next_state)
         #print("ep:"+str(episode)+action+" state:"+str(state)+" next_state:"+str(next_state))
 
 

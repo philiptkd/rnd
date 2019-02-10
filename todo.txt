@@ -34,14 +34,8 @@ reward normalization: divide intrinsic reward by running estimate of its standar
 observation normalization: whiten each dimension. subtract running mean and divide by running standard deviation. clip in [-5, 5]
 	initialize the means, stddevs for normalization with a few steps of a random agent.
 	used only for target and predictor networks, not policy network
-
+----------
 todo:
-make RND agent
-see how fast predictor learns
 compare exploration of RND agent with random agent
 
-
 making RND agent that only partially observes environment will require changing how states are represented
-
-I didn't clip when normalizing, yet
-It looks like they combined everything into a single loss function

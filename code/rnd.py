@@ -3,24 +3,20 @@ from learner import DoubleQLearner
 import tensorflow as tf
 from welford import Welford
 
-alpha = 0.1
-gamma_ext = .999
-gamma_int = .99
+gamma_ext = .99
+gamma_int = .9
 eps0 = 0.3
-episodes = 1000
-runs = 5
-c = 2
-lr = .1
+episodes = 5000
+runs = 20
 max_grad_norm = 1.0
 rand_init_episodes = 100
-pred_train_keep_rate = .001
-Q_int_coeff = 0#0.5
+Q_int_coeff = 0.5
 
 
 # changes I made to try to make this behave like neural.py
-    # Q_int_coeff = 0
-    # Q_loss = loss_ext
-    # loss = Q_loss
+    # Q_int_coeff = 0, to take actions only wrt Q_ext
+    # Q_loss = loss_ext, to not alter weights to better predict intrinsic reward
+    # loss = Q_loss, to not alter weights to better predict fixed target net output
 
 class RNDLearner(DoubleQLearner):
     def __init__(self, episodes, runs):
@@ -59,7 +55,7 @@ class RNDLearner(DoubleQLearner):
 
         loss_ext = tf.reduce_sum(tf.square(self.targets_ext_ph - Q_ext)) # error in prediction of external return
         loss_int = tf.reduce_sum(tf.square(self.targets_int_ph - Q_int)) # error in prediction of internal return
-        Q_loss = loss_ext #+ loss_int
+        Q_loss = loss_ext + loss_int
         return Q_ext, Q_int, Q_loss
 
 
@@ -84,7 +80,7 @@ class RNDLearner(DoubleQLearner):
 
 
     def update(self):
-        loss = self.Q_loss #+ self.aux_loss
+        loss = self.Q_loss + self.aux_loss
         optimizer = tf.train.AdamOptimizer()
         gradients, variables = zip(*optimizer.compute_gradients(loss))
         gradients, _ = tf.clip_by_global_norm(gradients, max_grad_norm)
@@ -109,11 +105,12 @@ class RNDLearner(DoubleQLearner):
     # take step in environment and gather/update information
     def step(self, eps):
         state = self.env.state
-        self.obs_stats.update(self.one_hot(state))  # update observation statistics
-        whitened_state = (self.one_hot(state) - self.obs_stats.mean)/np.sqrt(self.obs_stats.var) # whitened obs for pred and target nets
-
         action, Q_ext, Q_int = self.get_eps_action(self.one_hot(state), eps)    # take action wrt Q_ext+Q_int.
         next_state, reward_ext, done, _ = self.env.step(action)  # get external reward by acting in the environment
+
+        self.obs_stats.update(self.one_hot(next_state))  # update observation statistics
+        whitened_state = (self.one_hot(next_state) - self.obs_stats.mean)/np.sqrt(self.obs_stats.var) # whitened obs for pred and target nets
+        whitened_state = np.clip(whitened_state, -5, 5)
 
         reward_int = self.sess.run(self.aux_loss, {self.aux_inputs_ph: whitened_state})  # get intrinsic reward
         self.int_reward_stats.update(reward_int)    # update running statistics for intrinsic reward
@@ -145,13 +142,16 @@ class RNDLearner(DoubleQLearner):
                 # report data for analysis/plotting/visualization
                 yield state, self.env.action_space.actions[action], reward_ext, reward_int, next_state, done
 
-                # q-learning update for both Q-value heads
+                # greedy next action wrt Q_ext+Q_int
+                _, Q_ext_next, Q_int_next = self.get_eps_action(self.one_hot(next_state), 0)    
+                
+                # intrinsic reward is non-episodic
+                target_value_int = reward_int + gamma_int*np.max(Q_int_next)    
+       
+                # extrinsic reward is episodic
                 target_value_ext = reward_ext
-                target_value_int = reward_int
                 if not done:
-                    _, Q_ext_next, Q_int_next = self.get_eps_action(self.one_hot(next_state), 0)    # greedy action wrt Q_ext+Q_int
-                    target_value_ext += gamma_ext*np.max(Q_ext_next)
-                    target_value_int += gamma_int*np.max(Q_int_next)
+                    target_value_ext += gamma_ext*np.max(Q_ext_next)    
 
                 target_Q_ext = Q_ext    # only chosen action can have nonzero error
                 target_Q_ext[0,action] = target_value_ext   # the first index is into the zeroth (and only) batch dimension
@@ -182,15 +182,16 @@ class RNDLearner(DoubleQLearner):
         for episode in range(rand_init_episodes):
             done = False
             while not done:
-                observation = self.one_hot(self.env.state)  #TODO: change this (and all one_hot calls) when partially observing
+                action = self.env.action_space.sample() # take an action to give us another observation
+                next_state, _, done, _ = self.env.step(action)  # use resulting next state as observation
+                observation = self.one_hot(next_state)  #TODO: change this (and all one_hot calls) when partially observing
                 self.obs_stats.update(observation)  # update obs stats
                 obs_list.append(observation)    # save to list for use with intrinsic reward stats
-                action = self.env.action_space.sample() # take an action to give us another observation
-                _, _, done, _ = self.env.step(action)
 
         # use observations to create whitened states for input to the aux networks
         for observation in obs_list:
             whitened_state = (observation - self.obs_stats.mean)/np.sqrt(self.obs_stats.var) # whitened observation for pred and target nets
+            whitened_state = np.clip(whitened_state, -5, 5)
             reward_int = self.sess.run(self.aux_loss, {self.aux_inputs_ph: whitened_state})  # get intrinsic reward
             self.int_reward_stats.update(reward_int)    # update int_reward stats
 
