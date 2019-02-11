@@ -22,4 +22,4 @@ class Welford():
         self.count = 0
         self.mean = 0
         self.M2 = 0
-
+        self.var = 0

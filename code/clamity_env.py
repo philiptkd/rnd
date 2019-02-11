@@ -20,16 +20,24 @@ class ActionSpace():
 class ClamEnv():
     def __init__(self):
         # grid setup
-        self.height = 3
-        self.width = 3
+        self.height = 15
+        self.width = 15
         self.start = (self.height//2,self.width//2)
         self.grid = np.zeros((self.height, self.width))
-        self.grid[0,0] = 2
-        self.grid[0,self.width-1] = 3
-        self.grid[self.height-1,0] = 4
-        self.grid[self.height-1,self.width-1] = 5
+        self.grid[3,3] = 2
+        self.grid[3,self.width-4] = 3
+        self.grid[self.height-4,3] = 4
+        self.grid[self.height-4,self.width-4] = 5
         self.grid[self.start[0], self.start[1]] = 1
-        
+
+        # observation grid
+        self.window_size = 3    # should be an odd number
+        self.obs_height = self.height+self.window_size-1
+        self.obs_width = self.width+self.window_size-1
+        self.obs_grid = -1*np.ones((self.obs_height, self.obs_width))
+        self.wall_depth = (self.window_size - 1)//2
+        self.obs_grid[self.wall_depth:self.obs_height-self.wall_depth,self.wall_depth:self.obs_width-self.wall_depth] = self.grid
+
         self.action_space = ActionSpace(("left","right","up","down","stop"))
         self.reset()
 
@@ -60,8 +68,23 @@ class ClamEnv():
             reward = 0
             done = False
 
-        return self.state, reward, done, {} # openai gym convention
+        return self.obs_fn(self.state), reward, done, {} # openai gym convention
 
     # converts state list to int
     def list2int(self, state):
         return state[0]*self.width + state[1]
+
+    # observation function
+    # returns a window_size x window_size view of the environment centered at the agent's position
+    def obs_fn(self, state):
+        row = state[0]+self.wall_depth    # row and column in observation grid
+        col = state[1]+self.wall_depth
+        window = self.obs_grid[row-self.wall_depth:row+self.wall_depth+1,col-self.wall_depth:col+self.wall_depth+1]
+        window =  window.ravel()   # flattened for input to dense layers
+        window = np.array([window]) # extra dimension of size 1 added because dense layers expect a batch dimension
+        return window
+             
+    # convenience function to return the current observation
+    def obs(self):
+        return self.obs_fn(self.state)
+

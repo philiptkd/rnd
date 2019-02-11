@@ -36,9 +36,9 @@ class DoubleQLearner():
                         episode_returns[episode] = G    # record return for each episode
                         episode += 1
                         G = 0
-                    if visualize and episode%100 == 99:   # plays animation of agent during learning. very slow
+                    if visualize and episode%100 == 99 and done:   # plays animation of agent during learning. very slow
                         self.visualizer(episode, state, action, next_state)
-                    if episode%100 == 99:
+                    if episode%100 == 99 and done:
                         print("avg return: ", np.average(episode_returns[episode-100:episode]))
                         print(r_int)
                 except StopIteration:   # happens when the step generator completes all episodes for this run
@@ -49,7 +49,7 @@ class DoubleQLearner():
         plt.xlabel("Episode")
         plt.ylabel("Average Returns")
         #plt.ylim([0,1])
-        plt.savefig('rnd_full_obs_3x3.png')
+        plt.savefig('rnd_partial_3x3.png')
         plt.show()
         print(np.average(avg_ep_returns[-500:]))
 
@@ -60,7 +60,7 @@ class DoubleQLearner():
         for row in range(self.env.height):
             for col in range(self.env.width):
                 grid_point = [row, col]
-                Q_ext, Q_int = self.sess.run([self.Q_ext, self.Q_int], {self.inputs_ph: self.one_hot(grid_point)})
+                Q_ext, Q_int = self.sess.run([self.Q_ext, self.Q_int], {self.inputs_ph: self.env.obs_fn(grid_point)})
                 grid[row,col,:,0] = Q_ext
                 grid[row,col,:,1] = Q_int
         
@@ -69,7 +69,7 @@ class DoubleQLearner():
         #grid = np.max(grid, axis=1).reshape((self.env.height, self.env.width)) # assigning a value to each state
         
         #print(np.max(grid[:,:,:,0], 2)) # max values for Q_ext
-        print(np.average(grid[:,:,:,1], 2)) # average Q_int values
+        print(np.ceil(np.average(grid[:,:,:,1], 2))) # average Q_int values. ceil is for readability
         #grid = np.max(grid[...,0]+grid[...,1],2) # max values for Q_ext+Q_int
 
         #self.disp.process_events(grid, state, action, next_state)

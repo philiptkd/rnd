@@ -24,4 +24,14 @@ I've run into the problem of needing to run part of a graph, interact with the e
 This sentence in the paper confused me. To me, "returns" implies episodic rewards, but they explicitly say they use nonepisodic intrinsic rewards. So I thought maybe they were referring to Q-value estimates, since those estimate returns in the episodic case. But in their ppo_agent.py, line #257, it looks like they divide by the standard deviation of intrinsic *rewards*. So that's what I'm going to do. It also makes more sense.
 
 2/9/19
-I fixed two major mistakes today that enabled the RND agent to do at least as well as the agent with no intrinsic rewards. The first and biggest mistake was in calculating the intrinsic reward based on the state before the action and not the state resulting from the action. The other mistake was in treating the intrinsic rewards episodically. 
+I fixed two major mistakes today that enabled the RND agent to do at least as well as the agent with no intrinsic rewards. The first and biggest mistake was in calculating the intrinsic reward based on the state before the action and not the state resulting from the action. The other mistake was in treating the intrinsic rewards episodically.
+
+2/10/19
+In the fully observed case, I encounter a divide-by-zero error when the stats initializer hasn't visited all the states enough times to give them all non-zero variance. This won't be a problem in the partially observed case. But for now, I'll just have to let the random act until all states have nonzero variance.
+...
+The partially observing RND agent with a 3x3 field of view solves both the 3x3 problem (no surprise) and the 7x7 problem (mild surprise). I'm running a test on a 15x15 grid now. If it also solves this, I'll have to double-check whether I'm leaking information to it or cheating somehow. If I'm not, I'll have to rethink my hypothesis that a curiosity-driven agent couldn't effectively explore a space with a large number of aliased states.
+
+2/11/19
+It mostly solved the 15x15 grid. My hypothesis is that it could because the optima were all in the corners. Because the agent is naturally attracted to the edge of the map, it's possible that it found the optima when walking along the walls. I'm trying it again with the rewards only occuring in the halfway points between the center and the four corners.
+...
+It seems like I was right. Moving the rewards to the new locations made the 15x15 problem unsolvable by the RND agent with a 3x3 window. It should be noted that the Q network for the agent has no recurrent component. An agent with some kind of RNN cell would probably be able to solve this problem, but the model complexity would need to scale with the number of aliased states. It might also depend on whether the initial state is consistent or not. My goal is to propose a method of unaliasing with complexity that does not scale with the problem.
