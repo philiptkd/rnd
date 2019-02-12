@@ -6,14 +6,15 @@ alpha = 0.1
 gamma = 1
 eps = 0.3
 c = 2
-visualize = True
+visualize = False
 
 class DoubleQLearner():
-    def __init__(self, episodes, runs):
-        self.env = ClamEnv()
+    def __init__(self, episodes, runs, trail=False):
+        self.env = ClamEnv(trail=trail)
         self.step_taker = self.stepper
         self.episodes = episodes
         self.runs = runs
+        self.trail = trail
         #if visualize:
         #    from display import Disp
         #    self.disp = Disp(self.env)
@@ -30,17 +31,26 @@ class DoubleQLearner():
             episode = 0
             while True: # for each run
                 try:
-                    state, action, r_ext, r_int, next_state, done = next(step) 
+                    # needed for trail handling
+                    state = self.env.state
+                    trail_penalty = self.env.trail_grid[state[0],state[1]]
+
+                    # take a step
+                    obs, action, r_ext, r_int, next_obs, done = next(step) 
+
+                    # correcting for the self-imposed negative rewards (trail) for comparison purposes
+                    if self.trail and action=="stop":
+                        r_ext -= trail_penalty
+
                     G = r_ext + gamma*G
                     if done:
                         episode_returns[episode] = G    # record return for each episode
                         episode += 1
                         G = 0
                     if visualize and episode%100 == 99 and done:   # plays animation of agent during learning. very slow
-                        self.visualizer(episode, state, action, next_state)
+                        self.visualizer(episode, obs, action, next_obs)
                     if episode%100 == 99 and done:
                         print("avg return: ", np.average(episode_returns[episode-100:episode]))
-                        print(r_int)
                 except StopIteration:   # happens when the step generator completes all episodes for this run
                     break
             avg_ep_returns += (episode_returns - avg_ep_returns)/(run+1)
@@ -49,12 +59,12 @@ class DoubleQLearner():
         plt.xlabel("Episode")
         plt.ylabel("Average Returns")
         #plt.ylim([0,1])
-        plt.savefig('rnd_partial_3x3.png')
+        plt.savefig('neg_reward_trail_15x15.png')
         plt.show()
         print(np.average(avg_ep_returns[-500:]))
 
 
-    def visualizer(self, episode, state, action, next_state):
+    def visualizer(self, episode, obs, action, next_obs):
         grid = np.zeros((self.env.height, self.env.width, self.num_actions, 2))
 
         for row in range(self.env.height):

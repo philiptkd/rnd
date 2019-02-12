@@ -1,14 +1,3 @@
-make environment
-	discrete state and action space
-	partially observed
-	similar to Clamity
-
-make baseline agent
-	double q-learning
-	tabular with UCB
-	fully observed with RND
-	partially observed with RND
-
 add unaliasing
 	random binary string
 	try with single agent and multiagent
@@ -17,11 +6,12 @@ add unaliasing
 collect and analyze data
 	percent of state space explored
 	average per-agent regret or return
+	number of times another optimum was found	
 
 create visualizations
 	plot results
+	video with decaying trail
 	video comparing behavior of different kinds of agents
-
 
 
 RND
@@ -35,7 +25,6 @@ observation normalization: whiten each dimension. subtract running mean and divi
 	initialize the means, stddevs for normalization with a few steps of a random agent.
 	used only for target and predictor networks, not policy network
 ----------
-todo:
 compare exploration of RND agent with random agent
 
-making RND agent that only partially observes environment will require changing how states are represented
+

@@ -6,6 +6,8 @@
 
 import numpy as np
 
+trail_decay = 0.2
+
 class ActionSpace():
     def __init__(self, actions_tuple):
         self.actions = actions_tuple
@@ -16,35 +18,48 @@ class ActionSpace():
         return action
 
 
-
 class ClamEnv():
-    def __init__(self):
+    def __init__(self, trail=False):
         # grid setup
         self.height = 15
         self.width = 15
         self.start = (self.height//2,self.width//2)
         self.grid = np.zeros((self.height, self.width))
-        self.grid[3,3] = 2
-        self.grid[3,self.width-4] = 3
-        self.grid[self.height-4,3] = 4
-        self.grid[self.height-4,self.width-4] = 5
-        self.grid[self.start[0], self.start[1]] = 1
+        r_row = (self.height-3)//4  # rows from top and bottom where the rewards are
+        r_col = (self.width-3)//4   # columns from left and right where the rewards are
+        self.grid[r_row,r_col] = 3
+        self.grid[r_row,self.width-r_col-1] = 4
+        self.grid[self.height-r_row-1,r_col] = 5
+        self.grid[self.height-r_row-1,self.width-r_col-1] = 6
+        self.grid[self.start[0], self.start[1]] = 2
+
+        # trail of negative reward the agent leaves in its wake
+        self.trail = trail
+        self.trail_grid = np.zeros((self.height, self.width))
 
         # observation grid
         self.window_size = 3    # should be an odd number
         self.obs_height = self.height+self.window_size-1
         self.obs_width = self.width+self.window_size-1
-        self.obs_grid = -1*np.ones((self.obs_height, self.obs_width))
         self.wall_depth = (self.window_size - 1)//2
-        self.obs_grid[self.wall_depth:self.obs_height-self.wall_depth,self.wall_depth:self.obs_width-self.wall_depth] = self.grid
+        self.obs_grid = -2*np.ones((self.obs_height, self.obs_width))
+        self.update_obs_grid()
 
         self.action_space = ActionSpace(("left","right","up","down","stop"))
         self.reset()
 
+
+    # updates the grid from which agent observations are taken
+    def update_obs_grid(self):
+        self.obs_grid[self.wall_depth:self.obs_height-self.wall_depth,self.wall_depth:self.obs_width-self.wall_depth] \
+                = self.grid + self.trail_grid
+
+
     # resets to start position
     def reset(self):
         self.state = list(self.start)
-        return self.list2int(self.state)
+        return self.state
+
 
     # action is an index into possible action tuple
     # returns (reward, done)
@@ -68,11 +83,16 @@ class ClamEnv():
             reward = 0
             done = False
 
+        # handle if we're using trails
+        if self.trail:
+            if done:
+                reward += self.trail_grid[row,col]  # penalize reward if an agent has been to this state recently
+            self.trail_grid = np.minimum(0, self.trail_grid + trail_decay)  # decay trail
+            self.trail_grid[row, col] = -1  # extend end of trail to last state visited
+            self.update_obs_grid()  # put trails on observation space
+
         return self.obs_fn(self.state), reward, done, {} # openai gym convention
 
-    # converts state list to int
-    def list2int(self, state):
-        return state[0]*self.width + state[1]
 
     # observation function
     # returns a window_size x window_size view of the environment centered at the agent's position
