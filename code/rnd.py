@@ -1,3 +1,5 @@
+# a q-learning agent with RND intrinsic motivation. fully observed
+
 import numpy as np
 from learner import DoubleQLearner
 import tensorflow as tf
@@ -12,7 +14,7 @@ max_grad_norm = 1.0
 Q_int_coeff = 0.25
 
 
-# changes I made to try to make this behave like neural.py
+# changes you can make to make this behave like neural.py
     # Q_int_coeff = 0, to take actions only wrt Q_ext
     # Q_loss = loss_ext, to not alter weights to better predict intrinsic reward
     # loss = Q_loss, to not alter weights to better predict fixed target net output

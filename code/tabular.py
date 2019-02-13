@@ -1,3 +1,5 @@
+# a tabular q-learning agent with optional UCB exploration
+
 import numpy as np
 from learner import DoubleQLearner
 

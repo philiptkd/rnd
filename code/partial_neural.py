@@ -1,3 +1,5 @@
+# a basic Q-learning agent with partial observability
+
 import numpy as np
 from learner import DoubleQLearner
 import tensorflow as tf

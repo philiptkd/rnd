@@ -1,3 +1,5 @@
+# a q-learning agent with RND intrinsic motivation. partially observed
+
 import numpy as np
 from learner import DoubleQLearner
 import tensorflow as tf
@@ -7,26 +9,26 @@ gamma_ext = .99
 gamma_int = .9
 eps0 = 0.3
 episodes = 10000
-runs = 20
+runs = 5
 max_grad_norm = 1.0
 Q_int_coeff = 0.25
 num_init_episodes = 1000
 max_timesteps = 50
 
-# changes I made to try to make this behave like neural.py
-    # Q_int_coeff = 0, to take actions only wrt Q_ext
-    # Q_loss = loss_ext, to not alter weights to better predict intrinsic reward
-    # loss = Q_loss, to not alter weights to better predict fixed target net output
-
 class RNDLearner(DoubleQLearner):
-    def __init__(self, episodes, runs):
-        super().__init__(episodes, runs)    # sets environment and handles visualization if turned on
+    def __init__(self, episodes, runs, non_reward_trail=False):
+        super().__init__(episodes, runs, non_reward_trail=non_reward_trail)    # sets environment and handles visualization if turned on
         self.step_taker = self.q_learning   # the function that provides experience and does the learning
         self.window_area = self.env.window_size**2
         self.num_actions = len(self.env.action_space.actions)   # number of possible actions in the environment
         self.int_reward_stats = Welford()   # maintains running mean and variance of intrinsic reward
         self.obs_stats = Welford()  # maintains running mean and variance of observations (only for prediction and target networks)
         
+        # handle non_reward_trail
+        self.non_reward_trail = non_reward_trail
+        if non_reward_trail:
+            self.window_area = self.window_area*2   # extra dimension for breadcrumb observations
+
         # placeholders
         self.inputs_ph = tf.placeholder(tf.float32, shape=(1,self.window_area))  # the observation at each time step
         self.aux_inputs_ph = tf.placeholder(tf.float32, shape=(1,self.window_area))  # inputs to prediction and fixed target networks
@@ -188,5 +190,5 @@ class RNDLearner(DoubleQLearner):
             self.int_reward_stats.update(reward_int)    # update int_reward stats
 
 
-learner = RNDLearner(episodes, runs)
+learner = RNDLearner(episodes, runs, non_reward_trail=True)
 learner.main()

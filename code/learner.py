@@ -1,3 +1,5 @@
+# base class for q-learning agents that prints, plots, and visualizes performance
+
 import numpy as np
 import matplotlib.pyplot as plt
 from clamity_env import ClamEnv
@@ -6,11 +8,12 @@ alpha = 0.1
 gamma = 1
 eps = 0.3
 c = 2
-visualize = False
+visualize = True
+np.set_printoptions(linewidth=120)
 
 class DoubleQLearner():
-    def __init__(self, episodes, runs, trail=False):
-        self.env = ClamEnv(trail=trail)
+    def __init__(self, episodes, runs, trail=False, non_reward_trail=False):
+        self.env = ClamEnv(trail=trail, non_reward_trail=non_reward_trail)
         self.step_taker = self.stepper
         self.episodes = episodes
         self.runs = runs
@@ -22,6 +25,8 @@ class DoubleQLearner():
 
     def main(self):
         avg_ep_returns = np.zeros(self.episodes) # to plot
+        num_visits = np.zeros((self.runs, self.env.height, self.env.width))    # times stopped in each state. measure of exploration
+        run_returns = np.zeros(self.runs)   # average return for last 500 episodes of each run
         for run in range(self.runs):
             print(run)
             episode_returns = np.zeros(self.episodes)
@@ -33,10 +38,15 @@ class DoubleQLearner():
                 try:
                     # needed for trail handling
                     state = self.env.state
-                    trail_penalty = self.env.trail_grid[state[0],state[1]]
+                    if self.trail:
+                        trail_penalty = self.env.comm_grid[state[0],state[1]]
 
                     # take a step
                     obs, action, r_ext, r_int, next_obs, done = next(step) 
+
+                    # update visit counts
+                    if action=="stop":
+                        num_visits[run,state[0],state[1]] += 1
 
                     # correcting for the self-imposed negative rewards (trail) for comparison purposes
                     if self.trail and action=="stop":
@@ -50,19 +60,29 @@ class DoubleQLearner():
                     if visualize and episode%100 == 99 and done:   # plays animation of agent during learning. very slow
                         self.visualizer(episode, obs, action, next_obs)
                     if episode%100 == 99 and done:
+                        print("episode: ", episode+1)
                         print("avg return: ", np.average(episode_returns[episode-100:episode]))
                 except StopIteration:   # happens when the step generator completes all episodes for this run
                     break
-            avg_ep_returns += (episode_returns - avg_ep_returns)/(run+1)
+            avg_ep_returns += (episode_returns - avg_ep_returns)/(run+1)    # update line to plot
+            run_returns[run] = np.average(episode_returns[-500:])   # save run return data
             
+        # plot average returns per episode
         plt.plot(range(self.episodes),avg_ep_returns)
         plt.xlabel("Episode")
         plt.ylabel("Average Returns")
         #plt.ylim([0,1])
-        plt.savefig('neg_reward_trail_15x15.png')
+        plt.savefig('rnd_non_reward_trail.png')
         plt.show()
+
+        # print the average return over the last 500 episodes
         print(np.average(avg_ep_returns[-500:]))
 
+        # save things to files
+        with open("num_visits_rnd.npy", 'wb') as f:
+            pickle.dump(num_visits, f)
+        with open("run_returns_rnd.npy", 'wb') as f:
+            pickle.dump(run_returns, f)
 
     def visualizer(self, episode, obs, action, next_obs):
         grid = np.zeros((self.env.height, self.env.width, self.num_actions, 2))

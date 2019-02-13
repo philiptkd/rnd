@@ -6,7 +6,7 @@
 
 import numpy as np
 
-trail_decay = 0.2
+trail_decay = 0.05
 
 class ActionSpace():
     def __init__(self, actions_tuple):
@@ -19,7 +19,9 @@ class ActionSpace():
 
 
 class ClamEnv():
-    def __init__(self, trail=False):
+    def __init__(self, trail=False, non_reward_trail=False):
+        assert not (trail and non_reward_trail)  # use at most one
+
         # grid setup
         self.height = 15
         self.width = 15
@@ -33,16 +35,20 @@ class ClamEnv():
         self.grid[self.height-r_row-1,self.width-r_col-1] = 6
         self.grid[self.start[0], self.start[1]] = 2
 
-        # trail of negative reward the agent leaves in its wake
+        # the grid on which agents leave their marks as communication
+        self.comm_grid = np.zeros((self.height, self.width))
         self.trail = trail
-        self.trail_grid = np.zeros((self.height, self.width))
+        self.non_reward_trail = non_reward_trail
 
         # observation grid
         self.window_size = 3    # should be an odd number
         self.obs_height = self.height+self.window_size-1
         self.obs_width = self.width+self.window_size-1
         self.wall_depth = (self.window_size - 1)//2
-        self.obs_grid = -2*np.ones((self.obs_height, self.obs_width))
+        if non_reward_trail:
+            self.obs_grid = -2*np.ones((2, self.obs_height, self.obs_width))    # trail exists on different observation dimension
+        else:
+            self.obs_grid = -2*np.ones((self.obs_height, self.obs_width))
         self.update_obs_grid()
 
         self.action_space = ActionSpace(("left","right","up","down","stop"))
@@ -51,8 +57,18 @@ class ClamEnv():
 
     # updates the grid from which agent observations are taken
     def update_obs_grid(self):
-        self.obs_grid[self.wall_depth:self.obs_height-self.wall_depth,self.wall_depth:self.obs_width-self.wall_depth] \
-                = self.grid + self.trail_grid
+        if self.trail:
+            # copy grid info to non-wall gridpoints in the observation grid
+            # the trail is negative reward, so we combine them additively
+            self.obs_grid[self.wall_depth:self.obs_height-self.wall_depth,self.wall_depth:self.obs_width-self.wall_depth] \
+                    = self.grid + self.comm_grid
+        elif self.non_reward_trail:
+            # these markers are not associated with reward, so they go on another dimension
+            self.obs_grid[:,self.wall_depth:self.obs_height-self.wall_depth,self.wall_depth:self.obs_width-self.wall_depth] \
+                    = np.stack([self.grid, self.comm_grid])
+        else:
+            self.obs_grid[self.wall_depth:self.obs_height-self.wall_depth,self.wall_depth:self.obs_width-self.wall_depth] \
+                    = self.grid
 
 
     # resets to start position
@@ -83,12 +99,17 @@ class ClamEnv():
             reward = 0
             done = False
 
-        # handle if we're using trails
-        if self.trail:
+        
+        if self.trail:  # handle if we're using trails
             if done:
-                reward += self.trail_grid[row,col]  # penalize reward if an agent has been to this state recently
-            self.trail_grid = np.minimum(0, self.trail_grid + trail_decay)  # decay trail
-            self.trail_grid[row, col] = -1  # extend end of trail to last state visited
+                reward += self.comm_grid[row,col]  # penalize reward if an agent has been to this state recently
+            self.comm_grid = np.minimum(0, self.comm_grid + trail_decay)  # decay trail
+            self.comm_grid[row, col] = -1  # extend end of trail to last state visited
+            self.update_obs_grid()  # put trails on observation space
+        
+        elif self.non_reward_trail:  # if we're leaving a trail not associated with reward
+            self.comm_grid = np.maximum(0, self.comm_grid - trail_decay)  # decay trail
+            self.comm_grid[row, col] = 1  # extend end of trail to last state visited
             self.update_obs_grid()  # put trails on observation space
 
         return self.obs_fn(self.state), reward, done, {} # openai gym convention
@@ -99,7 +120,10 @@ class ClamEnv():
     def obs_fn(self, state):
         row = state[0]+self.wall_depth    # row and column in observation grid
         col = state[1]+self.wall_depth
-        window = self.obs_grid[row-self.wall_depth:row+self.wall_depth+1,col-self.wall_depth:col+self.wall_depth+1]
+        if self.non_reward_trail:
+            window = self.obs_grid[:,row-self.wall_depth:row+self.wall_depth+1,col-self.wall_depth:col+self.wall_depth+1]
+        else:
+            window = self.obs_grid[row-self.wall_depth:row+self.wall_depth+1,col-self.wall_depth:col+self.wall_depth+1]
         window =  window.ravel()   # flattened for input to dense layers
         window = np.array([window]) # extra dimension of size 1 added because dense layers expect a batch dimension
         return window
