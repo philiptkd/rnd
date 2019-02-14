@@ -55,3 +55,8 @@ The randomly disappearing binary markers (breadcrumbs) idea isn't working well w
 ...
 A decaying trail works sometimes with RND. Interestingly, I've only seen positive results when the decay rate is very low, resulting in long trails with a higher resolution of values. I may have to revisit my theory on the relationship between decay rate and model complexity. 
 For some reason, I was reusing the same initialization of parameters for every run. This almost defeats the purpose of having multiple runs. I now re-initialize every time.
+
+2/13/19
+It looks like reward trails perform better than feature trails, which is not surprising. The agent must learn what to do with the feature information. None of that learning is required when the trail is directly realized as a decrease in reward.
+It also looks like curiosity didn't significantly improve upon either unaliasing method. In fact, it decreased performance significantly when added to a feature trails agent. However, if you consider success a bernoulli random variable conditioned on whether the global optimum was found, curiosity with reward trails found it the most often (8 times out of 40). If you measure success by the number of times the agent found an optimum other than the local optimum, curiosity only adds one more success to the plain reward trails agent.
+I should try using discrete markers that persist only throughout a single episode. 
