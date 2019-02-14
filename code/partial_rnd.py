@@ -9,15 +9,15 @@ gamma_ext = .99
 gamma_int = .9
 eps0 = 0.3
 episodes = 10000
-runs = 5
+runs = 40
 max_grad_norm = 1.0
 Q_int_coeff = 0.25
 num_init_episodes = 1000
 max_timesteps = 50
 
 class RNDLearner(DoubleQLearner):
-    def __init__(self, episodes, runs, non_reward_trail=False):
-        super().__init__(episodes, runs, non_reward_trail=non_reward_trail)    # sets environment and handles visualization if turned on
+    def __init__(self, trail=False, non_reward_trail=False):
+        super().__init__(episodes, runs, trail=trail, non_reward_trail=non_reward_trail)    # sets environment and handles visualization
         self.step_taker = self.q_learning   # the function that provides experience and does the learning
         self.window_area = self.env.window_size**2
         self.num_actions = len(self.env.action_space.actions)   # number of possible actions in the environment
@@ -42,10 +42,7 @@ class RNDLearner(DoubleQLearner):
         self.init_op = tf.global_variables_initializer()    # global initialization done after the graph is defined
         
         # session
-        self.saver = tf.train.Saver()   # for saving and restoring model weights
         self.sess = tf.Session()    # using the same session for the life of this RNDLearner object (each run). 
-        self.sess.run(self.init_op) # initialize all model parameters
-        self.saver.save(self.sess, "/tmp/model.ckpt") # save initial parameters
 
 
     # builds the computation graph for a Q network
@@ -122,7 +119,7 @@ class RNDLearner(DoubleQLearner):
 
 
     def q_learning(self):
-        self.saver.restore(self.sess, "/tmp/model.ckpt")  # restore the initial weights for each new run
+        self.sess.run(self.init_op) # (re)initialize all model parameters
         self.initialize_stats() # reset all statistics to zero and then initialize with random agent
 
         for episode in range(episodes):
@@ -189,6 +186,5 @@ class RNDLearner(DoubleQLearner):
             reward_int = self.sess.run(self.aux_loss, {self.aux_inputs_ph: whitened_next_obs})  # get intrinsic reward
             self.int_reward_stats.update(reward_int)    # update int_reward stats
 
-
-learner = RNDLearner(episodes, runs, non_reward_trail=True)
+learner = RNDLearner(trail=True)
 learner.main()

@@ -52,3 +52,6 @@ It also somewhat solves the 15x15 problem, though it doesn't consistently find t
 I've now realized that a larger Q-network being necessary for lower decay rates is analagous to needing more RNN capacity for a longer memory span. It's still possible that the negative reward trail scales better than an RNN in number of aliased states, but this would need to be studied. I still need to try the disappearing discrete markers approach. It might work better.
 ...
 The randomly disappearing binary markers (breadcrumbs) idea isn't working well with RND curiosity. My guess is that a consistent decaying trail is easier to learn about than randomness in the agent's wake. I will try using a decaying trail with RND.
+...
+A decaying trail works sometimes with RND. Interestingly, I've only seen positive results when the decay rate is very low, resulting in long trails with a higher resolution of values. I may have to revisit my theory on the relationship between decay rate and model complexity. 
+For some reason, I was reusing the same initialization of parameters for every run. This almost defeats the purpose of having multiple runs. I now re-initialize every time.

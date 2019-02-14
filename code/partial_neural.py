@@ -8,16 +8,21 @@ from welford import Welford
 gamma_ext = .99
 eps0 = 0.3
 episodes = 10000
-runs = 20
+runs = 40
 max_grad_norm = 1.0
-max_timesteps = 20
+max_timesteps = 50
 
 class NeuralLearner(DoubleQLearner):
-    def __init__(self, episodes, runs, trail=False):
-        super().__init__(episodes, runs, trail)    # sets environment and handles visualization if turned on
+    def __init__(self, episodes, runs, trail=False, non_reward_trail=False):
+        super().__init__(episodes, runs, trail=trail, non_reward_trail=non_reward_trail)    # sets environment and handles visualization
         self.step_taker = self.q_learning   # the function that provides experience and does the learning
         self.window_area = self.env.window_size**2
         self.num_actions = len(self.env.action_space.actions)   # number of possible actions in the environment
+        
+        # handle non_reward_trail
+        self.non_reward_trail = non_reward_trail
+        if non_reward_trail:
+            self.window_area = self.window_area*2   # extra dimension for breadcrumb observations
         
         # placeholders
         self.inputs_ph = tf.placeholder(tf.float32, shape=(1,self.window_area))  # the observation at each time step
@@ -29,10 +34,7 @@ class NeuralLearner(DoubleQLearner):
         self.init_op = tf.global_variables_initializer()    # global initialization done after the graph is defined
         
         # session
-        self.saver = tf.train.Saver()   # for saving and restoring model weights
         self.sess = tf.Session()    # using the same session for the life of this RNDLearner object (each run). 
-        self.sess.run(self.init_op) # initialize all model parameters
-        self.saver.save(self.sess, "/tmp/model.ckpt") # save initial parameters
 
 
     # builds the computation graph for a Q network
@@ -76,7 +78,7 @@ class NeuralLearner(DoubleQLearner):
 
 
     def q_learning(self):
-        self.saver.restore(self.sess, "/tmp/model.ckpt")  # restore the initial weights for each new run
+        self.sess.run(self.init_op) # initialize all model parameters
 
         for episode in range(episodes):
             eps = eps0 - eps0*episode/episodes # decay epsilon

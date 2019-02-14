@@ -23,10 +23,7 @@ class NeuralLearner(DoubleQLearner):
         self.targets = tf.placeholder(tf.float32, shape=(1,self.num_actions))
         self.Q_out_op, self.Q_update_op = self.build_graph()
         self.init_op = tf.global_variables_initializer()
-        self.saver = tf.train.Saver()
         self.sess = tf.Session()
-        self.sess.run(self.init_op)
-        self.saver.save(self.sess, "/tmp/model.ckpt") # save initial parameters
 
     # builds the computation graph for a Q network
     def build_graph(self):
@@ -52,7 +49,7 @@ class NeuralLearner(DoubleQLearner):
         return action, Q
 
     def q_learning(self):
-        self.saver.restore(self.sess, "/tmp/model.ckpt")  # restore the initial weights for each new run
+        self.sess.run(self.init_op)
         for episode in range(episodes):
             eps = eps0 - eps0*episode/episodes # decay epsilon
             done = False

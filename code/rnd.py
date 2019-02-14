@@ -41,10 +41,7 @@ class RNDLearner(DoubleQLearner):
         self.init_op = tf.global_variables_initializer()    # global initialization done after the graph is defined
         
         # session
-        self.saver = tf.train.Saver()   # for saving and restoring model weights
         self.sess = tf.Session()    # using the same session for the life of this RNDLearner object (each run). 
-        self.sess.run(self.init_op) # initialize all model parameters
-        self.saver.save(self.sess, "/tmp/model.ckpt") # save initial parameters
 
 
     # builds the computation graph for a Q network
@@ -121,7 +118,7 @@ class RNDLearner(DoubleQLearner):
 
 
     def q_learning(self):
-        self.saver.restore(self.sess, "/tmp/model.ckpt")  # restore the initial weights for each new run
+        self.sess.run(self.init_op) # initialize all model parameters
         self.initialize_stats() # reset all statistics to zero and then initialize with random agent
 
         for episode in range(episodes):

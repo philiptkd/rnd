@@ -1,14 +1,15 @@
-# base class for q-learning agents that prints, plots, and visualizes performance
+# base class for q-learning selfs that prints, plots, and visualizes performance
 
 import numpy as np
 import matplotlib.pyplot as plt
 from clamity_env import ClamEnv
+import pickle
 
 alpha = 0.1
 gamma = 1
 eps = 0.3
 c = 2
-visualize = True
+visualize = False
 np.set_printoptions(linewidth=120)
 
 class DoubleQLearner():
@@ -18,9 +19,36 @@ class DoubleQLearner():
         self.episodes = episodes
         self.runs = runs
         self.trail = trail
+        self.non_reward_trail = non_reward_trail
         #if visualize:
         #    from display import Disp
         #    self.disp = Disp(self.env)
+
+
+    def visualizer(self, episode, obs, action, next_obs):
+        grid = np.zeros((self.env.height, self.env.width, self.num_actions, 2))
+
+        for row in range(self.env.height):
+            for col in range(self.env.width):
+                grid_point = [row, col]
+                Q_ext, Q_int = self.sess.run([self.Q_ext, self.Q_int], {self.inputs_ph: self.env.obs_fn(grid_point)})
+                grid[row,col,:,0] = Q_ext
+                grid[row,col,:,1] = Q_int
+        
+        # for tabular double q learning
+        #grid = (self.Q1 + self.Q2)/2
+        #grid = np.max(grid, axis=1).reshape((self.env.height, self.env.width)) # assigning a value to each state
+        
+        #print(np.max(grid[:,:,:,0], 2)) # max values for Q_ext
+        print(np.ceil(np.average(grid[:,:,:,1], 2))) # average Q_int values. ceil is for readability
+        #grid = np.max(grid[...,0]+grid[...,1],2) # max values for Q_ext+Q_int
+
+        #self.disp.process_events(grid, state, action, next_state)
+        #print("ep:"+str(episode)+action+" state:"+str(state)+" next_state:"+str(next_state))
+
+
+    def stepper(self):
+        raise NotImplementedError
 
 
     def main(self):
@@ -28,9 +56,7 @@ class DoubleQLearner():
         num_visits = np.zeros((self.runs, self.env.height, self.env.width))    # times stopped in each state. measure of exploration
         run_returns = np.zeros(self.runs)   # average return for last 500 episodes of each run
         for run in range(self.runs):
-            print(run)
             episode_returns = np.zeros(self.episodes)
-
             step = self.step_taker() # step generator. learning also happens
             G = 0
             episode = 0
@@ -57,9 +83,10 @@ class DoubleQLearner():
                         episode_returns[episode] = G    # record return for each episode
                         episode += 1
                         G = 0
-                    if visualize and episode%100 == 99 and done:   # plays animation of agent during learning. very slow
+                    if visualize and episode%100 == 99 and done:   # plays animation of self during learning. very slow
                         self.visualizer(episode, obs, action, next_obs)
                     if episode%100 == 99 and done:
+                        print("run: ", run)
                         print("episode: ", episode+1)
                         print("avg return: ", np.average(episode_returns[episode-100:episode]))
                 except StopIteration:   # happens when the step generator completes all episodes for this run
@@ -72,39 +99,14 @@ class DoubleQLearner():
         plt.xlabel("Episode")
         plt.ylabel("Average Returns")
         #plt.ylim([0,1])
-        plt.savefig('rnd_non_reward_trail.png')
+        plt.savefig('neural_trail.png')
         plt.show()
 
         # print the average return over the last 500 episodes
         print(np.average(avg_ep_returns[-500:]))
 
         # save things to files
-        with open("num_visits_rnd.npy", 'wb') as f:
+        with open("num_visits_neural_trail.npy", 'wb') as f:
             pickle.dump(num_visits, f)
-        with open("run_returns_rnd.npy", 'wb') as f:
+        with open("run_returns_neural_trail.npy", 'wb') as f:
             pickle.dump(run_returns, f)
-
-    def visualizer(self, episode, obs, action, next_obs):
-        grid = np.zeros((self.env.height, self.env.width, self.num_actions, 2))
-
-        for row in range(self.env.height):
-            for col in range(self.env.width):
-                grid_point = [row, col]
-                Q_ext, Q_int = self.sess.run([self.Q_ext, self.Q_int], {self.inputs_ph: self.env.obs_fn(grid_point)})
-                grid[row,col,:,0] = Q_ext
-                grid[row,col,:,1] = Q_int
-        
-        # for tabular double q learning
-        #grid = (self.Q1 + self.Q2)/2
-        #grid = np.max(grid, axis=1).reshape((self.env.height, self.env.width)) # assigning a value to each state
-        
-        #print(np.max(grid[:,:,:,0], 2)) # max values for Q_ext
-        print(np.ceil(np.average(grid[:,:,:,1], 2))) # average Q_int values. ceil is for readability
-        #grid = np.max(grid[...,0]+grid[...,1],2) # max values for Q_ext+Q_int
-
-        #self.disp.process_events(grid, state, action, next_state)
-        #print("ep:"+str(episode)+action+" state:"+str(state)+" next_state:"+str(next_state))
-
-
-    def stepper(self):
-        raise NotImplementedError
