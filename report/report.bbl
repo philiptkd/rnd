@@ -1,0 +1,127 @@
+\begin{thebibliography}{10}
+
+\bibitem{rnd}
+Y.~Burda, H.~Edwards, A.~Storkey, and O.~Klimov, ``Exploration by random
+  network distillation,'' 2018.
+
+\bibitem{social_influence}
+N.~Jaques, A.~Lazaridou, E.~Hughes, {\c{C}}.~G{\"{u}}l{\c{c}}ehre, P.~A.
+  Ortega, D.~Strouse, J.~Z. Leibo, and N.~de~Freitas, ``Intrinsic social
+  motivation via causal influence in multi-agent {RL},'' {\em CoRR},
+  vol.~abs/1810.08647, 2018.
+
+\bibitem{asymmetric_selfplay}
+S.~Sukhbaatar, I.~Kostrikov, A.~Szlam, and R.~Fergus, ``Intrinsic motivation
+  and automatic curricula via asymmetric self-play,'' {\em CoRR},
+  vol.~abs/1703.05407, 2017.
+
+\bibitem{prediction_error}
+D.~Pathak, P.~Agrawal, A.~A. Efros, and T.~Darrell, ``Curiosity-driven
+  exploration by self-supervised prediction,'' {\em CoRR}, vol.~abs/1705.05363,
+  2017.
+
+\bibitem{hashing}
+H.~Tang, R.~Houthooft, D.~Foote, A.~Stooke, X.~Chen, Y.~Duan, J.~Schulman,
+  F.~D. Turck, and P.~Abbeel, ``{\#}exploration: {A} study of count-based
+  exploration for deep reinforcement learning,'' {\em CoRR},
+  vol.~abs/1611.04717, 2016.
+
+\bibitem{malthusian_rl}
+J.~Z. Leibo, J.~P{\'{e}}rolat, E.~Hughes, S.~Wheelwright, A.~H. Marblestone,
+  E.~A. Du{\'{e}}{\~{n}}ez{-}Guzm{\'{a}}n, P.~Sunehag, I.~Dunning, and
+  T.~Graepel, ``Malthusian reinforcement learning,'' {\em CoRR},
+  vol.~abs/1812.07019, 2018.
+
+\bibitem{seed_sampling}
+M.~Dimakopoulou, I.~Osband, and B.~V. Roy, ``Scalable coordinated exploration
+  in concurrent reinforcement learning,'' {\em CoRR}, vol.~abs/1805.08948,
+  2018.
+
+\bibitem{a3c}
+V.~Mnih, A.~P. Badia, M.~Mirza, A.~Graves, T.~P. Lillicrap, T.~Harley,
+  D.~Silver, and K.~Kavukcuoglu, ``Asynchronous methods for deep reinforcement
+  learning,'' {\em CoRR}, vol.~abs/1602.01783, 2016.
+
+\bibitem{lstm}
+S.~Hochreiter and J.~Schmidhuber, ``Long short-term memory,'' {\em Neural
+  Comput.}, vol.~9, pp.~1735--1780, Nov. 1997.
+
+\bibitem{dqn}
+V.~Mnih, K.~Kavukcuoglu, D.~Silver, A.~A. Rusu, J.~Veness, M.~G. Bellemare,
+  A.~Graves, M.~Riedmiller, A.~K. Fidjeland, G.~Ostrovski, S.~Petersen,
+  C.~Beattie, A.~Sadik, I.~Antonoglou, H.~King, D.~Kumaran, D.~Wierstra,
+  S.~Legg, and D.~Hassabis, ``Human-level control through deep reinforcement
+  learning,'' {\em Nature}, vol.~518, pp.~529 EP --, Feb 2015.
+
+\bibitem{sutton_and_barto}
+R.~S. Sutton and A.~G. Barto, {\em Reinforcement Learning: An Introduction}.
+\newblock Cambridge, MA, USA: MIT Press, 2nd~ed., 2018.
+
+\bibitem{stochastic_games}
+L.~S. Shapley, ``Stochastic games,'' {\em Proceedings of the National Academy
+  of Sciences}, vol.~39, no.~10, pp.~1095--1100, 1953.
+
+\bibitem{bansal_mujoco}
+T.~Bansal, J.~Pachocki, S.~Sidor, I.~Sutskever, and I.~Mordatch, ``Emergent
+  complexity via multi-agent competition,'' {\em CoRR}, vol.~abs/1710.03748,
+  2017.
+
+\bibitem{leibo_social_dilemmas}
+J.~Z. Leibo, V.~F. Zambaldi, M.~Lanctot, J.~Marecki, and T.~Graepel,
+  ``Multi-agent reinforcement learning in sequential social dilemmas,'' {\em
+  CoRR}, vol.~abs/1702.03037, 2017.
+
+\bibitem{tampuu_pong}
+A.~Tampuu, T.~Matiisen, D.~Kodelja, I.~Kuzovkin, K.~Korjus, J.~Aru, J.~Aru, and
+  R.~Vicente, ``Multiagent cooperation and competition with deep reinforcement
+  learning,'' {\em CoRR}, vol.~abs/1511.08779, 2015.
+
+\bibitem{lola}
+J.~N. Foerster, R.~Y. Chen, M.~Al{-}Shedivat, S.~Whiteson, P.~Abbeel, and
+  I.~Mordatch, ``Learning with opponent-learning awareness,'' {\em CoRR},
+  vol.~abs/1709.04326, 2017.
+
+\bibitem{sukhbaatar_commnet}
+S.~Sukhbaatar, A.~Szlam, and R.~Fergus, ``Learning multiagent communication
+  with backpropagation,'' {\em CoRR}, vol.~abs/1605.07736, 2016.
+
+\bibitem{foerster_dial}
+J.~N. Foerster, Y.~M. Assael, N.~de~Freitas, and S.~Whiteson, ``Learning to
+  communicate with deep multi-agent reinforcement learning,'' {\em CoRR},
+  vol.~abs/1605.06676, 2016.
+
+\bibitem{peng_bicnet}
+P.~Peng, Q.~Yuan, Y.~Wen, Y.~Yang, Z.~Tang, H.~Long, and J.~Wang, ``Multiagent
+  bidirectionally-coordinated nets for learning to play starcraft combat
+  games,'' {\em CoRR}, vol.~abs/1703.10069, 2017.
+
+\bibitem{lowe_maddpg}
+R.~Lowe, Y.~Wu, A.~Tamar, J.~Harb, P.~Abbeel, and I.~Mordatch, ``Multi-agent
+  actor-critic for mixed cooperative-competitive environments,'' {\em CoRR},
+  vol.~abs/1706.02275, 2017.
+
+\bibitem{foerster_coma}
+J.~N. Foerster, G.~Farquhar, T.~Afouras, N.~Nardelli, and S.~Whiteson,
+  ``Counterfactual multi-agent policy gradients,'' {\em CoRR},
+  vol.~abs/1705.08926, 2017.
+
+\bibitem{rashid_qmix}
+T.~Rashid, M.~Samvelyan, C.~S. de~Witt, G.~Farquhar, J.~N. Foerster, and
+  S.~Whiteson, ``{QMIX:} monotonic value function factorisation for deep
+  multi-agent reinforcement learning,'' {\em CoRR}, vol.~abs/1803.11485, 2018.
+
+\bibitem{raileanu_som}
+R.~Raileanu, E.~Denton, A.~Szlam, and R.~Fergus, ``Modeling others using
+  oneself in multi-agent reinforcement learning,'' {\em CoRR},
+  vol.~abs/1802.09640, 2018.
+
+\bibitem{hong_dpiqn}
+Z.~Hong, S.~Su, T.~Shann, Y.~Chang, and C.~Lee, ``A deep policy inference
+  q-network for multi-agent systems,'' {\em CoRR}, vol.~abs/1712.07893, 2017.
+
+\bibitem{mtom}
+N.~C. Rabinowitz, F.~Perbet, H.~F. Song, C.~Zhang, S.~M.~A. Eslami, and
+  M.~Botvinick, ``Machine theory of mind,'' {\em CoRR}, vol.~abs/1802.07740,
+  2018.
+
+\end{thebibliography}
