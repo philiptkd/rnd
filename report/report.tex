@@ -1,6 +1,5 @@
 \documentclass[11pt,journal,compsoc]{IEEEtran}
-\usepackage{amsmath}
-\usepackage{cite}
+\usepackage{amsmath, cite, graphicx, color, amssymb, mathtools}
 \usepackage{notation}
 
 \begin{document}
@@ -82,24 +81,37 @@
 	Not until 2015 did anyone successfully scale reinforcement learning up to high-dimensional observations. In their paper \cite{dqn}, researchers from DeepMind successfully utilized the power of deep neural networks to play Atari video games directly from pixels on the screen. The weights within the neural network comprise the parameters of the agent's policy model. The techniques they employed are still being built upon today.
 	
 	\subsection{Exploration}
-	Subsection text here.
-	\cite{social_influence}
-	\cite{asymmetric_selfplay}
-	\cite{prediction_error}
-	\cite{hashing}
-	\cite{malthusian_rl}
-	\cite{seed_sampling}
-	\cite{a3c}
+	One of the most central tasks of a reinforcement learning algorithm is to explore the policy space adequately enough to discover optimal behavior. In the single-agent setting, basic exploration strategies include occasionally taking random actions \cite{eps_greedy}, using optimistic prior estimates for the value of all actions \cite{optimistic_initialization}, and using state visit counts to measure uncertainty in action value estimates \cite{ucb}. In many ways, these basic ideas remain state of the art for the general case. For example, count-based methods of measuring uncertainty have recently been extended to large and continuous state spaces \cite{hashing} \cite{pseudo_counts}.
+	
+	Several modern methods of exploration achieve diversity of experience through parallel execution of many agents at once. In \cite{a3c}, many non-interacting agents concurrently explore their environment (through occasional random actions) and pool their experience to jointly learn a single policy. The same idea is applied in \cite{seed_sampling}, except diversity of experience is achieved by each agent receiving unique priors and observation functions. 
+	
+	Instead of using many parallel single-agent environments, \cite{malthusian_rl} utilizes a multi-agent setting to learn optimal single-agent policies. They drive exploration through population dynamics and the pressures of competition and resource scarcity. Somewhat similarly, a pair of adversarial agents are used in \cite{asymmetric_selfplay} to discover single-agent policies by rewarding one for ``out-exploring'' the other. 
+	
+	Much recent research has been done in the realm of intrinsic motivation. Agents that are intrinsically motivated attempt to optimize their own intrinsic rewards alongside the (extrinsic) rewards provided by the environment. Having intrinsic rewards is especially useful in environments with sparse extrinsic rewards. One form of intrinsic motivation is the idea of empowerment \cite{empowerment}, a measure of the effect an agent has on its environment. Another is the idea of curiosity, wherein an agent is incentivized to seek novel observations. It could, for example, favor states it had not predicted well \cite{prediction_error}.
 	
 	\subsection{Random Network Distillation}
-	Subsection text here.
+	We make use of one form of intrinsic motivation in this paper: exploration by random network distillation (RND) \cite{rnd}. RND is a form of curiosity that rewards agents for receiving observations that they have not received many times before. It does this through the use of two auxiliary neural networks called the ``target network'' and the ``predictor network''. The target network is a fixed, random network that takes an agent's observations as input. The predictor network, which has the same architecture as the target network, is trained over time to predict the output of the random target network. The error between the outputs of the two auxiliary networks approaches zero for observations received many times. It is this error that is used as the agent's intrinsic reward at each time step.
+	
+	RND was chosen in this paper for its simplicity and its effectiveness. Simple both conceptually and practically, it was a good candidate for use in a simple one-quarter project. Additionally, at the time of its publication, it was the state of the art exploration method by a large margin, by some measures. In particular, it was the first method to successfully complete the first level of Montezuma's Revenge, a famously difficult exploration Atari game, without learning from human examples or extra state information.
 	
 	\section{Problem Description}
+	As pointed out in \cite{malthusian_rl}, though popular, curiosity-driven agents (among many others) still fail to solve a particular class of MDP. This class is that of environments that have very sparse rewards, are partially observed, and have local optima near the agent's initial state. Informally, this is like situating an agent in a large, dark, and mostly empty room. The agent is actually discouraged from exploring by the existence of a nearby reward, one that appears to be the only reward in the whole environment. 
+	
+	An illustration of the exact environment used in our experiments is shown in Fig.~\ref{fig:grid}. The corresponding MDP has a finite state and action space. In the figure, colored squares are states with associated rewards. The actions available to the agent are ``left'', ``right'', ``up'', ``down'', and ``stop''. The agent receives zero reward until it stops, at which time it receives a reward proportional to the intensity of the color of square it's on. The agent always starts in the center state and has a 3x3 observation window.
+	
+	Each agent is given 10,000 episodes of navigating and stopping during which to explore, learn, and optimize behavior.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\linewidth*4/5]{grid.png}
+		\caption{A simple grid environment that discourages exploration.}
+		\label{fig:grid}
+	\end{figure}
 	
 	\section{Model Description}
 	
 	\section{Data and Experimental Results}
-	
+	curiosity found rewards along walls
 	
 	
 	

@@ -4,55 +4,6 @@
 Y.~Burda, H.~Edwards, A.~Storkey, and O.~Klimov, ``Exploration by random
   network distillation,'' 2018.
 
-\bibitem{social_influence}
-N.~Jaques, A.~Lazaridou, E.~Hughes, {\c{C}}.~G{\"{u}}l{\c{c}}ehre, P.~A.
-  Ortega, D.~Strouse, J.~Z. Leibo, and N.~de~Freitas, ``Intrinsic social
-  motivation via causal influence in multi-agent {RL},'' {\em CoRR},
-  vol.~abs/1810.08647, 2018.
-
-\bibitem{asymmetric_selfplay}
-S.~Sukhbaatar, I.~Kostrikov, A.~Szlam, and R.~Fergus, ``Intrinsic motivation
-  and automatic curricula via asymmetric self-play,'' {\em CoRR},
-  vol.~abs/1703.05407, 2017.
-
-\bibitem{prediction_error}
-D.~Pathak, P.~Agrawal, A.~A. Efros, and T.~Darrell, ``Curiosity-driven
-  exploration by self-supervised prediction,'' {\em CoRR}, vol.~abs/1705.05363,
-  2017.
-
-\bibitem{hashing}
-H.~Tang, R.~Houthooft, D.~Foote, A.~Stooke, X.~Chen, Y.~Duan, J.~Schulman,
-  F.~D. Turck, and P.~Abbeel, ``{\#}exploration: {A} study of count-based
-  exploration for deep reinforcement learning,'' {\em CoRR},
-  vol.~abs/1611.04717, 2016.
-
-\bibitem{malthusian_rl}
-J.~Z. Leibo, J.~P{\'{e}}rolat, E.~Hughes, S.~Wheelwright, A.~H. Marblestone,
-  E.~A. Du{\'{e}}{\~{n}}ez{-}Guzm{\'{a}}n, P.~Sunehag, I.~Dunning, and
-  T.~Graepel, ``Malthusian reinforcement learning,'' {\em CoRR},
-  vol.~abs/1812.07019, 2018.
-
-\bibitem{seed_sampling}
-M.~Dimakopoulou, I.~Osband, and B.~V. Roy, ``Scalable coordinated exploration
-  in concurrent reinforcement learning,'' {\em CoRR}, vol.~abs/1805.08948,
-  2018.
-
-\bibitem{a3c}
-V.~Mnih, A.~P. Badia, M.~Mirza, A.~Graves, T.~P. Lillicrap, T.~Harley,
-  D.~Silver, and K.~Kavukcuoglu, ``Asynchronous methods for deep reinforcement
-  learning,'' {\em CoRR}, vol.~abs/1602.01783, 2016.
-
-\bibitem{lstm}
-S.~Hochreiter and J.~Schmidhuber, ``Long short-term memory,'' {\em Neural
-  Comput.}, vol.~9, pp.~1735--1780, Nov. 1997.
-
-\bibitem{dqn}
-V.~Mnih, K.~Kavukcuoglu, D.~Silver, A.~A. Rusu, J.~Veness, M.~G. Bellemare,
-  A.~Graves, M.~Riedmiller, A.~K. Fidjeland, G.~Ostrovski, S.~Petersen,
-  C.~Beattie, A.~Sadik, I.~Antonoglou, H.~King, D.~Kumaran, D.~Wierstra,
-  S.~Legg, and D.~Hassabis, ``Human-level control through deep reinforcement
-  learning,'' {\em Nature}, vol.~518, pp.~529 EP --, Feb 2015.
-
 \bibitem{sutton_and_barto}
 R.~S. Sutton and A.~G. Barto, {\em Reinforcement Learning: An Introduction}.
 \newblock Cambridge, MA, USA: MIT Press, 2nd~ed., 2018.
@@ -123,5 +74,68 @@ Z.~Hong, S.~Su, T.~Shann, Y.~Chang, and C.~Lee, ``A deep policy inference
 N.~C. Rabinowitz, F.~Perbet, H.~F. Song, C.~Zhang, S.~M.~A. Eslami, and
   M.~Botvinick, ``Machine theory of mind,'' {\em CoRR}, vol.~abs/1802.07740,
   2018.
+
+\bibitem{dqn}
+V.~Mnih, K.~Kavukcuoglu, D.~Silver, A.~A. Rusu, J.~Veness, M.~G. Bellemare,
+  A.~Graves, M.~Riedmiller, A.~K. Fidjeland, G.~Ostrovski, S.~Petersen,
+  C.~Beattie, A.~Sadik, I.~Antonoglou, H.~King, D.~Kumaran, D.~Wierstra,
+  S.~Legg, and D.~Hassabis, ``Human-level control through deep reinforcement
+  learning,'' {\em Nature}, vol.~518, pp.~529 EP --, Feb 2015.
+
+\bibitem{eps_greedy}
+C.~Watkins, ``Learning from delayed rewards,'' 01 1989.
+
+\bibitem{optimistic_initialization}
+R.~Sutton, ``Generalization in reinforcement learning: Successful examples
+  using sparse coarse coding,'' 08 1996.
+
+\bibitem{ucb}
+T.~Lai and H.~Robbins, ``Asymptotically efficient adaptive allocation rules,''
+  {\em Advances in Applied Mathematics}, vol.~6, no.~1, pp.~4 -- 22, 1985.
+
+\bibitem{hashing}
+H.~Tang, R.~Houthooft, D.~Foote, A.~Stooke, X.~Chen, Y.~Duan, J.~Schulman,
+  F.~D. Turck, and P.~Abbeel, ``{\#}exploration: {A} study of count-based
+  exploration for deep reinforcement learning,'' {\em CoRR},
+  vol.~abs/1611.04717, 2016.
+
+\bibitem{pseudo_counts}
+M.~G. Bellemare, S.~Srinivasan, G.~Ostrovski, T.~Schaul, D.~Saxton, and
+  R.~Munos, ``Unifying count-based exploration and intrinsic motivation,'' {\em
+  CoRR}, vol.~abs/1606.01868, 2016.
+
+\bibitem{a3c}
+V.~Mnih, A.~P. Badia, M.~Mirza, A.~Graves, T.~P. Lillicrap, T.~Harley,
+  D.~Silver, and K.~Kavukcuoglu, ``Asynchronous methods for deep reinforcement
+  learning,'' {\em CoRR}, vol.~abs/1602.01783, 2016.
+
+\bibitem{seed_sampling}
+M.~Dimakopoulou, I.~Osband, and B.~V. Roy, ``Scalable coordinated exploration
+  in concurrent reinforcement learning,'' {\em CoRR}, vol.~abs/1805.08948,
+  2018.
+
+\bibitem{malthusian_rl}
+J.~Z. Leibo, J.~P{\'{e}}rolat, E.~Hughes, S.~Wheelwright, A.~H. Marblestone,
+  E.~A. Du{\'{e}}{\~{n}}ez{-}Guzm{\'{a}}n, P.~Sunehag, I.~Dunning, and
+  T.~Graepel, ``Malthusian reinforcement learning,'' {\em CoRR},
+  vol.~abs/1812.07019, 2018.
+
+\bibitem{asymmetric_selfplay}
+S.~Sukhbaatar, I.~Kostrikov, A.~Szlam, and R.~Fergus, ``Intrinsic motivation
+  and automatic curricula via asymmetric self-play,'' {\em CoRR},
+  vol.~abs/1703.05407, 2017.
+
+\bibitem{empowerment}
+K.~Gregor, D.~J. Rezende, and D.~Wierstra, ``Variational intrinsic control,''
+  {\em CoRR}, vol.~abs/1611.07507, 2016.
+
+\bibitem{prediction_error}
+D.~Pathak, P.~Agrawal, A.~A. Efros, and T.~Darrell, ``Curiosity-driven
+  exploration by self-supervised prediction,'' {\em CoRR}, vol.~abs/1705.05363,
+  2017.
+
+\bibitem{lstm}
+S.~Hochreiter and J.~Schmidhuber, ``Long short-term memory,'' {\em Neural
+  Comput.}, vol.~9, pp.~1735--1780, Nov. 1997.
 
 \end{thebibliography}

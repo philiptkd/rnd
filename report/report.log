@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.2.20)  21 FEB 2019 06:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.2.20)  21 FEB 2019 14:43
 entering extended mode
 **./report.tex
 (report.tex
@@ -147,12 +147,87 @@ LaTeX Info: Redefining \] on input line 2845.
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
+)
+(/usr/local/share/miktex-texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/share/miktex-texmf/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks20
+)
+(/usr/local/share/miktex-texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/share/miktex-texmf/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/share/miktex-texmf/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/local/share/miktex-texmf/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen126
+\Gin@req@width=\dimen127
+)
+(/usr/local/share/miktex-texmf/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(/usr/local/share/miktex-texmf/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+)
+(/usr/local/share/miktex-texmf/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/share/miktex-texmf/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/share/miktex-texmf/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
+
+(/usr/local/share/miktex-texmf/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count105
+\calc@Bcount=\count106
+\calc@Adimen=\dimen128
+\calc@Bdimen=\dimen129
+\calc@Askip=\skip47
+\calc@Bskip=\skip48
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count107
+\calc@Cskip=\skip49
+)
+(/usr/local/share/miktex-texmf/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count108
+\l_MT_multwidth_dim=\dimen130
+\origjot=\skip50
+\l_MT_shortvdotswithinadjustabove_dim=\dimen131
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen132
+\l_MT_above_intertext_sep=\dimen133
+\l_MT_below_intertext_sep=\dimen134
+\l_MT_above_shortintertext_sep=\dimen135
+\l_MT_below_shortintertext_sep=\dimen136
 ) (notation.sty
 (/usr/local/share/miktex-texmf/tex/latex/tools/bm.sty
 Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
-\symboldoperators=\mathgroup4
-\symboldletters=\mathgroup5
-\symboldsymbols=\mathgroup6
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 207.
 )
@@ -162,16 +237,6 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
 (Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
 (Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
-)
-(/usr/local/share/miktex-texmf/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup7
-\symAMSb=\mathgroup8
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)
-(/usr/local/share/miktex-texmf/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
 (/usr/local/share/miktex-texmf/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
@@ -183,202 +248,336 @@ LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
 )) (report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+
+(/usr/local/share/miktex-texmf/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count109
+\scratchdimen=\dimen137
+\scratchbox=\box30
+\nofMPsegments=\count110
+\nofMParguments=\count111
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count112
+\MPscratchDim=\dimen138
+\MPnumerator=\count113
+\makeMPintoPDFobject=\count114
+\everyMPtoPDFconversion=\toks22
+) (/usr/local/share/miktex-texmf/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/share/miktex-texmf/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/share/miktex-texmf/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/share/miktex-texmf/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/local/share/miktex-texmf/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/local/share/miktex-texmf/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/share/miktex-texmf/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/share/miktex-texmf/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/local/share/miktex-texmf/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+))))
+(/usr/local/share/miktex-texmf/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/share/miktex-texmf/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 32.
 
 (/usr/local/share/miktex-texmf/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 33.
-LaTeX Font Info:    Try loading font information for U+msa on input line 33.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 32.
+LaTeX Font Info:    Try loading font information for U+msa on input line 32.
 
 (/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 33.
+LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 
 (/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+pzd on input line 33.
+LaTeX Font Info:    Try loading font information for U+pzd on input line 32.
 
 (/usr/local/share/miktex-texmf/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 33--33
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
 []\OT1/ppl/m/it/9 Philip Raeisghasem is with Louisiana Tech University,
  []
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 38.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 37.
 LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <12> not available
-(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 38.
+(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 37.
 
-Underfull \hbox (badness 1558) in paragraph at lines 39--40
+Underfull \hbox (badness 1558) in paragraph at lines 38--39
 []\OT1/ppl/m/sc/11 einforcement \OT1/ppl/m/n/11 learning is a paradigm of
  []
 
 
-Underfull \hbox (badness 1990) in paragraph at lines 39--40
+Underfull \hbox (badness 1990) in paragraph at lines 38--39
 \OT1/ppl/m/n/11 within an environment to achieve some goal.
  []
 
 
-Underfull \hbox (badness 1789) in paragraph at lines 39--40
+Underfull \hbox (badness 1789) in paragraph at lines 38--39
 \OT1/ppl/m/n/11 learning, this feedback is not in the form of
  []
 
 
-Underfull \hbox (badness 3907) in paragraph at lines 39--40
+Underfull \hbox (badness 3907) in paragraph at lines 38--39
 \OT1/ppl/m/n/11 to directly compare the model's performance
  []
 
 
-Underfull \hbox (badness 8113) in paragraph at lines 41--42
+Underfull \hbox (badness 8113) in paragraph at lines 40--41
 []\OT1/ppl/m/n/11 This difference in feedback mechanism is
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 41--42
+Underfull \hbox (badness 3930) in paragraph at lines 40--41
 \OT1/ppl/m/n/11 important for allowing reinforcement learning
  []
 
 
-Underfull \hbox (badness 1968) in paragraph at lines 41--42
+Underfull \hbox (badness 1968) in paragraph at lines 40--41
 \OT1/ppl/m/n/11 only specify the reward function for a given
  []
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 47.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 46.
 [1{/home/phil/.miktex/texmfs/data/pdftex/config/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 4001) in paragraph at lines 49--50
+Underfull \hbox (badness 4001) in paragraph at lines 48--49
 \OT1/ppl/m/n/11 tractable, and we compare their effectiveness
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 \OT1/ppl/m/n/11 by random network distillation (RND) as
  []
 
 
-Underfull \hbox (badness 4132) in paragraph at lines 51--52
+Underfull \hbox (badness 4132) in paragraph at lines 50--51
 \OT1/ppl/m/n/11 when combined with the (potentially sparse)
  []
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 56.
-LaTeX Font Info:    Try loading font information for U+eus on input line 57.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 55.
+LaTeX Font Info:    Try loading font information for U+eus on input line 56.
 (/usr/local/share/miktex-texmf/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
 )
-Underfull \hbox (badness 10000) in paragraph at lines 59--65
+Underfull \hbox (badness 10000) in paragraph at lines 58--64
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--65
+Underfull \hbox (badness 10000) in paragraph at lines 58--64
 
  []
 
 
-Underfull \hbox (badness 1502) in paragraph at lines 59--65
+Underfull \hbox (badness 1502) in paragraph at lines 58--64
 \OT1/ppl/m/n/11 where $\OML/cmm/m/it/10.95 G[]$ \OT1/ppl/m/n/11 is called the r
 eturn at time $\OML/cmm/m/it/10.95 t$\OT1/ppl/m/n/11 . The
  []
 
 
-Underfull \hbox (badness 1859) in paragraph at lines 59--65
+Underfull \hbox (badness 1859) in paragraph at lines 58--64
 \OT1/ppl/m/n/11 expectation is taken with respect to both the
  []
 
 
-Underfull \hbox (badness 3428) in paragraph at lines 66--67
+Underfull \hbox (badness 3428) in paragraph at lines 65--66
 \OT1/ppl/m/n/11 Observed Markov Decision Process (POMDP),
  []
 
 
-Underfull \hbox (badness 5119) in paragraph at lines 66--67
+Underfull \hbox (badness 5119) in paragraph at lines 65--66
 \OT1/ppl/m/n/11 wherein an agent doesn't necessarily receive
  []
 
 
-Underfull \hbox (badness 4699) in paragraph at lines 66--67
+Underfull \hbox (badness 4699) in paragraph at lines 65--66
 \OT1/ppl/m/n/11 complete information about the state of the
  []
 
 
-Underfull \hbox (badness 2310) in paragraph at lines 69--72
+Underfull \hbox (badness 2310) in paragraph at lines 68--71
 \OT1/ppl/m/n/11 constructions in game theory called stochastic
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 69--72
-\OT1/ppl/m/n/11 games [12]. We consider a partially observed
+Underfull \hbox (badness 4036) in paragraph at lines 68--71
+\OT1/ppl/m/n/11 games [3]. We consider a partially observed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--72
+Underfull \hbox (badness 10000) in paragraph at lines 68--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--72
+Underfull \hbox (badness 10000) in paragraph at lines 68--71
 
  []
 
 [2]
-Underfull \hbox (badness 2261) in paragraph at lines 73--74
+Underfull \hbox (badness 2261) in paragraph at lines 72--73
 []\OT1/ppl/m/n/11 There are several ways to classify different
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 73--74
+Underfull \hbox (badness 1661) in paragraph at lines 72--73
 \OT1/ppl/m/n/11 player, zero-sum games like chess and go. A
  []
 
 
-Underfull \hbox (badness 1360) in paragraph at lines 75--76
+Underfull \hbox (badness 1360) in paragraph at lines 74--75
 \OT1/ppl/m/n/11 according to how much information is shared
  []
 
 
-Underfull \hbox (badness 4168) in paragraph at lines 75--76
-\OT1/ppl/m/n/11 independent learners [13] [14] [15], when no
+Underfull \hbox (badness 4531) in paragraph at lines 74--75
+\OT1/ppl/m/n/11 between them. On one extreme is the case
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 75--76
-\OT1/ppl/m/n/11 other agent's model/policy parameters [16]. A
+Underfull \hbox (badness 3364) in paragraph at lines 74--75
+\OT1/ppl/m/n/11 of independent learners [4] [5] [6], when no
  []
 
 
-Underfull \hbox (badness 2237) in paragraph at lines 80--81
+Underfull \hbox (badness 1953) in paragraph at lines 74--75
+\OT1/ppl/m/n/11 extreme is the case where each agent knows
+ []
+
+
+Underfull \hbox (badness 2237) in paragraph at lines 79--80
 \OT1/ppl/m/n/11 do exist that can find optimal agent policies
  []
 
 
-Underfull \hbox (badness 3098) in paragraph at lines 80--81
+Underfull \hbox (badness 3098) in paragraph at lines 79--80
 \OT1/ppl/m/n/11 often too complex to be solved without the
  []
 
 
-Underfull \hbox (badness 2495) in paragraph at lines 82--83
+Underfull \hbox (badness 2495) in paragraph at lines 81--82
 \OT1/ppl/m/n/11 reinforcement learning up to high-dimensional
  []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 86--87
+\OT1/ppl/m/n/11 of many agents at once. In [23], many non-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+\OT1/ppl/m/n/11 interacting agents concurrently explore their
+ []
+
+
+Underfull \hbox (badness 2865) in paragraph at lines 88--89
+[]\OT1/ppl/m/n/11 Instead of using many parallel single-agent
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 88--89
+\OT1/ppl/m/n/11 pressures of competition and resource scarcity.
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 90--91
+\OT1/ppl/m/n/11 by the environment. Having intrinsic rewards
+ []
+
+
+Underfull \hbox (badness 2205) in paragraph at lines 90--91
+\OT1/ppl/m/n/11 is the idea of curiosity, wherein an agent is
+ []
+
+
+Underfull \hbox (badness 1527) in paragraph at lines 93--94
+\OT1/ppl/m/n/11 they have not received many times before. It
+ []
+
+
+Underfull \hbox (badness 1668) in paragraph at lines 93--94
+\OT1/ppl/m/n/11 networks called the ``target network'' and the
+ []
+
+[3]
+Underfull \hbox (badness 1412) in paragraph at lines 95--96
+\OT1/ppl/m/n/11 and its effectiveness. Simple both conceptually
+ []
+
+
+Underfull \hbox (badness 1990) in paragraph at lines 95--96
+\OT1/ppl/m/n/11 of Montezuma's Revenge, a famously difficult
+ []
+
+
+Underfull \hbox (badness 1389) in paragraph at lines 95--96
+\OT1/ppl/m/n/11 exploration Atari game, without learning from
+ []
+
+
+Underfull \hbox (badness 2707) in paragraph at lines 100--101
+\OT1/ppl/m/n/11 in our experiments is shown in Fig. 1[]. The
+ []
+
+<grid.png, id=28, 602.25pt x 602.25pt>
+File: grid.png Graphic file (type png)
+<use grid.png>
+Package pdftex.def Info: grid.png  used on input line 106.
+(pdftex.def)             Requested size: 201.59999pt x 201.60107pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 (report.bbl
 Underfull \hbox (badness 1796) in paragraph at lines 4--6
@@ -386,140 +585,154 @@ Underfull \hbox (badness 1796) in paragraph at lines 4--6
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--17
-\OT1/ppl/m/n/9 ``Intrinsic motivation and automatic curricula via
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--22
-\OT1/ppl/m/n/9 ``Curiosity-driven exploration by self-supervised
- []
-
-
-Underfull \hbox (badness 1776) in paragraph at lines 24--28
-\OT1/ppl/m/n/9 Y. Duan, J. Schulman, F. D. Turck, and P. Abbeel,
- []
-
-
-Underfull \hbox (badness 2096) in paragraph at lines 30--34
-[]\OT1/ppl/m/n/9 J. Z. Leibo, J. P[]erolat, E. Hughes, S. Wheelwright,
- []
-
-
-Underfull \hbox (badness 4328) in paragraph at lines 36--39
-\OT1/ppl/m/n/9 coordinated exploration in concurrent reinforcement
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--44
-\OT1/ppl/m/n/9 methods for deep reinforcement learning,'' \OT1/ppl/m/it/9 CoRR\
-OT1/ppl/m/n/9 ,
- []
-
-
-Underfull \hbox (badness 1484) in paragraph at lines 46--48
-[]\OT1/ppl/m/n/9 S. Hochreiter and J. Schmidhuber, ``Long short-term
- []
-
-
-Underfull \hbox (badness 2726) in paragraph at lines 50--55
-\OT1/ppl/m/n/9 M. G. Bellemare, A. Graves, M. Riedmiller, A. K.
- []
-
-
-Underfull \hbox (badness 1668) in paragraph at lines 61--63
+Underfull \hbox (badness 1668) in paragraph at lines 12--14
 []\OT1/ppl/m/n/9 L. S. Shapley, ``Stochastic games,'' \OT1/ppl/m/it/9 Proceedin
 gs of the
  []
 
 
-Underfull \hbox (badness 3838) in paragraph at lines 65--68
+Underfull \hbox (badness 3838) in paragraph at lines 16--19
 []\OT1/ppl/m/n/9 T. Bansal, J. Pachocki, S. Sidor, I. Sutskever, and
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 65--68
+Underfull \hbox (badness 3930) in paragraph at lines 16--19
 \OT1/ppl/m/n/9 I. Mordatch, ``Emergent complexity via multi-agent
  []
 
 
-Underfull \hbox (badness 3826) in paragraph at lines 75--78
+Underfull \hbox (badness 3826) in paragraph at lines 26--29
 []\OT1/ppl/m/n/9 A. Tampuu, T. Matiisen, D. Kodelja, I. Kuzovkin,
  []
 
-[3]
-Underfull \hbox (badness 2221) in paragraph at lines 85--87
+
+Underfull \hbox (badness 2221) in paragraph at lines 36--38
 []\OT1/ppl/m/n/9 S. Sukhbaatar, A. Szlam, and R. Fergus, ``Learning
  []
 
 
-Underfull \hbox (badness 4832) in paragraph at lines 89--92
+Underfull \hbox (badness 4832) in paragraph at lines 40--43
 []\OT1/ppl/m/n/9 J. N. Foerster, Y. M. Assael, N. de Freitas, and
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--102
+[4 <./grid.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 50--53
 \OT1/ppl/m/n/9 I. Mordatch, ``Multi-agent actor-critic for mixed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--102
+Underfull \hbox (badness 10000) in paragraph at lines 50--53
 \OT1/ppl/m/n/9 cooperative-competitive environments,'' \OT1/ppl/m/it/9 CoRR\OT1
 /ppl/m/n/9 ,
  []
 
 
-Underfull \hbox (badness 1859) in paragraph at lines 104--107
+Underfull \hbox (badness 1859) in paragraph at lines 55--58
 \OT1/ppl/m/n/9 and S. Whiteson, ``Counterfactual multi-agent policy
  []
 
 
-Underfull \hbox (badness 2717) in paragraph at lines 114--117
+Underfull \hbox (badness 2717) in paragraph at lines 65--68
 []\OT1/ppl/m/n/9 R. Raileanu, E. Denton, A. Szlam, and R. Fergus,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--117
+Underfull \hbox (badness 10000) in paragraph at lines 65--68
 \OT1/ppl/m/n/9 ``Modeling others using oneself in multi-agent
  []
 
 
-Underfull \hbox (badness 5548) in paragraph at lines 114--117
+Underfull \hbox (badness 5548) in paragraph at lines 65--68
 \OT1/ppl/m/n/9 reinforcement learning,'' \OT1/ppl/m/it/9 CoRR\OT1/ppl/m/n/9 , v
 ol. abs/1802.09640,
  []
 
-) [4
 
-] (report.aux) ) 
+Underfull \hbox (badness 2726) in paragraph at lines 79--84
+\OT1/ppl/m/n/9 M. G. Bellemare, A. Graves, M. Riedmiller, A. K.
+ []
+
+
+Underfull \hbox (badness 1609) in paragraph at lines 89--91
+[]\OT1/ppl/m/n/9 R. Sutton, ``Generalization in reinforcement learning:
+ []
+
+
+Underfull \hbox (badness 1776) in paragraph at lines 97--101
+\OT1/ppl/m/n/9 Y. Duan, J. Schulman, F. D. Turck, and P. Abbeel,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--106
+[]\OT1/ppl/m/n/9 M. G. Bellemare, S. Srinivasan, G. Ostrovski,
+ []
+
+
+Underfull \hbox (badness 4726) in paragraph at lines 103--106
+\OT1/ppl/m/n/9 based exploration and intrinsic motivation,'' \OT1/ppl/m/it/9 Co
+RR\OT1/ppl/m/n/9 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--111
+\OT1/ppl/m/n/9 methods for deep reinforcement learning,'' \OT1/ppl/m/it/9 CoRR\
+OT1/ppl/m/n/9 ,
+ []
+
+
+Underfull \hbox (badness 4328) in paragraph at lines 113--116
+\OT1/ppl/m/n/9 coordinated exploration in concurrent reinforcement
+ []
+
+
+Underfull \hbox (badness 2096) in paragraph at lines 118--122
+[]\OT1/ppl/m/n/9 J. Z. Leibo, J. P[]erolat, E. Hughes, S. Wheelwright,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--127
+\OT1/ppl/m/n/9 ``Intrinsic motivation and automatic curricula via
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--136
+\OT1/ppl/m/n/9 ``Curiosity-driven exploration by self-supervised
+ []
+
+
+Underfull \hbox (badness 1484) in paragraph at lines 138--140
+[]\OT1/ppl/m/n/9 S. Hochreiter and J. Schmidhuber, ``Long short-term
+ []
+
+) [5] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 2281 strings out of 494865
- 32279 string characters out of 3178605
- 92437 words of memory out of 3000000
- 5892 multiletter control sequences out of 15000+200000
- 54155 words of font info for 139 fonts, out of 3000000 for 9000
+ 4070 strings out of 494865
+ 60535 string characters out of 3178605
+ 129380 words of memory out of 3000000
+ 7601 multiletter control sequences out of 15000+200000
+ 55309 words of font info for 140 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 28i,7n,27p,944b,279s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/share/miktex-texmf/fonts/enc/dvips/base/8r.enc}</us
-r/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/loca
-l/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/shar
-e/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/share/mikte
-x-texmf/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/share/miktex-tex
-mf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/share/miktex-texmf/font
-s/type1/public/amsfonts/cm/cmr8.pfb></usr/local/share/miktex-texmf/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb></usr/local/share/miktex-texmf/fonts/type1/public
-/amsfonts/cm/cmsy8.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfon
-ts/cm/cmsy9.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/eule
-r/eusb10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/euler/e
-usm10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/symbols/ms
-bm10.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/helvetic/uhvb8a.pfb></u
-sr/local/share/miktex-texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/sha
-re/miktex-texmf/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/share/miktex-te
-xmf/fonts/type1/urw/palatino/uplri8a.pfb></usr/local/share/miktex-texmf/fonts/t
-ype1/urw/zapfding/uzdr.pfb>
-Output written on report.pdf (4 pages, 173237 bytes).
+ 41i,7n,27p,944b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/share/miktex-texmf/fonts/enc/dvips/base/8r.enc}
+</usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
+local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/
+share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/share/m
+iktex-texmf/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/share/miktex
+-texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/share/miktex-texmf/
+fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/share/miktex-texmf/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/local/share/miktex-texmf/fonts/type1/pu
+blic/amsfonts/cm/cmsy8.pfb></usr/local/share/miktex-texmf/fonts/type1/public/am
+sfonts/cm/cmsy9.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/
+euler/eusb10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/eul
+er/eusm10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/helvetic/uhvb8a.pfb
+></usr/local/share/miktex-texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local
+/share/miktex-texmf/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/share/mikte
+x-texmf/fonts/type1/urw/palatino/uplri8a.pfb></usr/local/share/miktex-texmf/fon
+ts/type1/urw/zapfding/uzdr.pfb>
+Output written on report.pdf (5 pages, 180697 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
