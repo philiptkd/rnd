@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.2.20)  21 FEB 2019 20:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.2.20)  22 FEB 2019 02:04
 entering extended mode
 **./report.tex
 (report.tex
@@ -909,6 +909,11 @@ Underfull \hbox (badness 6775) in paragraph at lines 167--168
 \OT1/ppl/m/n/12 architecture/method, a search also needs
  []
 
+
+Underfull \hbox (badness 2443) in paragraph at lines 167--168
+\OT1/ppl/m/n/12 Also, learning would almost definitely be
+ []
+
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 169.
 
 (/usr/local/share/miktex-texmf/tex/latex/psnfss/ot1pcr.fd
@@ -928,13 +933,13 @@ Underfull \hbox (badness 1701) in paragraph at lines 4--6
 []\OT1/ppl/m/n/9 Y. Burda, H. Edwards, A. Storkey, and O. Klimov,
  []
 
-
+[6]
 Underfull \hbox (badness 1571) in paragraph at lines 12--14
 []\OT1/ppl/m/n/9 L. S. Shapley, ``Stochastic games,'' \OT1/ppl/m/it/9 Proceedin
 gs of the
  []
 
-[6]
+
 Underfull \hbox (badness 3679) in paragraph at lines 16--19
 []\OT1/ppl/m/n/9 T. Bansal, J. Pachocki, S. Sidor, I. Sutskever, and
  []
@@ -1075,7 +1080,7 @@ share/miktex-texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/share/miktex
 -texmf/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/share/miktex-texmf/fonts
 /type1/urw/palatino/uplri8a.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/
 zapfding/uzdr.pfb>
-Output written on report.pdf (7 pages, 201616 bytes).
+Output written on report.pdf (7 pages, 201766 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
