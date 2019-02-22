@@ -82,7 +82,7 @@ V.~Mnih, K.~Kavukcuoglu, D.~Silver, A.~A. Rusu, J.~Veness, M.~G. Bellemare,
   S.~Legg, and D.~Hassabis, ``Human-level control through deep reinforcement
   learning,'' {\em Nature}, vol.~518, pp.~529 EP --, Feb 2015.
 
-\bibitem{eps_greedy}
+\bibitem{q_learning}
 C.~Watkins, ``Learning from delayed rewards,'' 01 1989.
 
 \bibitem{optimistic_initialization}

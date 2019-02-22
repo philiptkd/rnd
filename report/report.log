@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.2.20)  21 FEB 2019 14:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.2.20)  21 FEB 2019 20:59
 entering extended mode
 **./report.tex
 (report.tex
@@ -21,7 +21,7 @@ File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 -- Using 8.5in x 11in (letter) paper.
 -- Using PDF output.
 \@IEEEnormalsizeunitybaselineskip=\dimen104
--- This is an 11 point document.
+-- This is a 12 point document.
 \CLASSINFOnormalsizebaselineskip=\dimen105
 \CLASSINFOnormalsizeunitybaselineskip=\dimen106
 \IEEEnormaljot=\dimen107
@@ -41,21 +41,21 @@ LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 726.
 LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <10> not available
 (Font)              Font shape `OT1/ppl/b/it' tried instead on input line 726.
-LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <11> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 726.
-LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <11> not available
-(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 726.
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 726.
 LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <12> not available
 (Font)              Font shape `OT1/ppl/b/it' tried instead on input line 726.
-LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <17> not available
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 726.
-LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <17> not available
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <14> not available
 (Font)              Font shape `OT1/ppl/b/it' tried instead on input line 726.
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <20> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 726.
 LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <20> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <22> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <22> not available
 (Font)              Font shape `OT1/ppl/b/it' tried instead on input line 726.
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <24> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 726.
@@ -328,6 +328,7 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 32.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 32.
 LaTeX Font Info:    Try loading font information for U+msa on input line 32.
 
 (/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsa.fd
@@ -347,275 +348,618 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--32
 []\OT1/ppl/m/it/9 Philip Raeisghasem is with Louisiana Tech University,
  []
 
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 37.
-LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <12> not available
+LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <14> not available
 (Font)              Font shape `OT1/phv/b/sc' tried instead on input line 37.
 
-Underfull \hbox (badness 1558) in paragraph at lines 38--39
-[]\OT1/ppl/m/sc/11 einforcement \OT1/ppl/m/n/11 learning is a paradigm of
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+\OT1/ppl/m/n/12 and unsupervised learning. It is most
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+\OT1/ppl/m/n/12 to achieve some goal. Like supervised
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+\OT1/ppl/m/n/12 learning, reinforcement learning happens
  []
 
 
 Underfull \hbox (badness 1990) in paragraph at lines 38--39
-\OT1/ppl/m/n/11 within an environment to achieve some goal.
+\OT1/ppl/m/n/12 through a feedback mechanism during an
  []
 
 
-Underfull \hbox (badness 1789) in paragraph at lines 38--39
-\OT1/ppl/m/n/11 learning, this feedback is not in the form of
+Underfull \hbox (badness 4328) in paragraph at lines 38--39
+\OT1/ppl/m/n/12 answers to directly compare the model's
  []
 
 
-Underfull \hbox (badness 3907) in paragraph at lines 38--39
-\OT1/ppl/m/n/11 to directly compare the model's performance
+Underfull \hbox (badness 2205) in paragraph at lines 38--39
+\OT1/ppl/m/n/12 performance against. Instead, the feedback
  []
 
 
-Underfull \hbox (badness 8113) in paragraph at lines 40--41
-[]\OT1/ppl/m/n/11 This difference in feedback mechanism is
+Underfull \hbox (badness 6428) in paragraph at lines 40--41
+[]\OT1/ppl/m/n/12 This difference in feedback mechanism
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 40--41
-\OT1/ppl/m/n/11 important for allowing reinforcement learning
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+\OT1/ppl/m/n/12 is important for allowing reinforcement
  []
 
 
-Underfull \hbox (badness 1968) in paragraph at lines 40--41
-\OT1/ppl/m/n/11 only specify the reward function for a given
+Underfull \hbox (badness 1616) in paragraph at lines 40--41
+\OT1/ppl/m/n/12 experience. Thanks to the advent of deep
  []
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 46.
+
+Underfull \hbox (badness 7326) in paragraph at lines 40--41
+\OT1/ppl/m/n/12 neural networks, the space of problems
+ []
+
+
+Underfull \hbox (badness 2735) in paragraph at lines 40--41
+\OT1/ppl/m/n/12 for a given environment in reinforcement
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+[]\OT1/ppl/m/n/12 While for many problems it can be
+ []
+
+
+Underfull \hbox (badness 5741) in paragraph at lines 42--43
+\OT1/ppl/m/n/12 challenging to design a reward function
+ []
+
+
+Underfull \hbox (badness 4899) in paragraph at lines 42--43
+\OT1/ppl/m/n/12 class of problems are amenable to very
+ []
+
+
+Underfull \hbox (badness 1769) in paragraph at lines 42--43
+\OT1/ppl/m/n/12 the agent could only be rewarded at the
+ []
+
+
+Underfull \hbox (badness 2050) in paragraph at lines 42--43
+\OT1/ppl/m/n/12 difficulty and human effort in embedding
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+[]\OT1/ppl/m/n/12 In particular, using a sparse reward
+ []
+
+
+Underfull \hbox (badness 5036) in paragraph at lines 44--45
+\OT1/ppl/m/n/12 function exacerbates the existing problem
+ []
+
 [1{/home/phil/.miktex/texmfs/data/pdftex/config/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 4001) in paragraph at lines 48--49
-\OT1/ppl/m/n/11 tractable, and we compare their effectiveness
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+[]\OT1/ppl/m/n/12 The difficulty of exploration depends
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
-\OT1/ppl/m/n/11 by random network distillation (RND) as
+Underfull \hbox (badness 3635) in paragraph at lines 46--47
+\OT1/ppl/m/n/12 as well as the number of agents acting
  []
 
 
-Underfull \hbox (badness 4132) in paragraph at lines 50--51
-\OT1/ppl/m/n/11 when combined with the (potentially sparse)
+Underfull \hbox (badness 3407) in paragraph at lines 46--47
+\OT1/ppl/m/n/12 concurrently. This last factor, the number
  []
 
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11> not available
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+\OT1/ppl/m/n/12 of agents, is especially impactful. An
+ []
+
+
+Underfull \hbox (badness 2285) in paragraph at lines 46--47
+\OT1/ppl/m/n/12 function is of size $\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 S\OMS/c
+msy/m/n/12 j[]j\OML/cmm/m/it/12 A\OMS/cmsy/m/n/12 j[]$\OT1/ppl/m/n/12 . For pro
+blems
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+\OT1/ppl/m/n/12 of a particularly challenging class of
+ []
+
+
+Underfull \hbox (badness 6625) in paragraph at lines 48--49
+\OT1/ppl/m/n/12 environments for which normal methods
+ []
+
+
+Underfull \hbox (badness 1917) in paragraph at lines 48--49
+\OT1/ppl/m/n/12 are inadequate. We develop new methods
+ []
+
+
+Underfull \hbox (badness 7468) in paragraph at lines 50--51
+[]\OT1/ppl/m/n/12 Namely, we compare our methods to
+ []
+
+
+Underfull \hbox (badness 4120) in paragraph at lines 50--51
+\OT1/ppl/m/n/12 out states that are ``surprising''. Roughly
+ []
+
+
+Underfull \hbox (badness 3568) in paragraph at lines 52--53
+\OT1/ppl/m/n/12 by multiple agents concurrently exploring
+ []
+
+
+Underfull \hbox (badness 3396) in paragraph at lines 52--53
+\OT1/ppl/m/n/12 with both methods. The environment we
+ []
+
+
+Underfull \hbox (badness 1360) in paragraph at lines 52--53
+\OT1/ppl/m/n/12 other exploration methods for the sake of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+ \OT1/phv/b/sc/14 2 Background and Review of
+ []
+
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 55.
 LaTeX Font Info:    Try loading font information for U+eus on input line 56.
 (/usr/local/share/miktex-texmf/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
 )
-Underfull \hbox (badness 10000) in paragraph at lines 58--64
-
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+\OT1/ppl/m/n/12 A reinforcement learning problem is
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--64
-
+Underfull \hbox (badness 3108) in paragraph at lines 56--57
+\OT1/ppl/m/n/12 formalized as a Markov Decision Process
  []
 
 
-Underfull \hbox (badness 1502) in paragraph at lines 58--64
-\OT1/ppl/m/n/11 where $\OML/cmm/m/it/10.95 G[]$ \OT1/ppl/m/n/11 is called the r
-eturn at time $\OML/cmm/m/it/10.95 t$\OT1/ppl/m/n/11 . The
+Underfull \hbox (badness 1442) in paragraph at lines 56--57
+\OT1/ppl/m/n/12 from [2]. An MDP $\U/eus/m/n/12 M$ \OT1/ppl/m/n/12 is defined a
+s a 5-
  []
 
 
-Underfull \hbox (badness 1859) in paragraph at lines 58--64
-\OT1/ppl/m/n/11 expectation is taken with respect to both the
+Underfull \hbox (badness 2903) in paragraph at lines 56--57
+\OT1/ppl/m/n/12 a set of rewards. The dynamics function
  []
 
 
-Underfull \hbox (badness 3428) in paragraph at lines 65--66
-\OT1/ppl/m/n/11 Observed Markov Decision Process (POMDP),
+Overfull \hbox (7.4023pt too wide) in paragraph at lines 56--57
+\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s[]; r\OMS/cmsy/m/n/12 j\OM
+L/cmm/m/it/12 s; a\OT1/cmr/m/n/12 ) [] []  [][]$
  []
 
 
-Underfull \hbox (badness 5119) in paragraph at lines 65--66
-\OT1/ppl/m/n/11 wherein an agent doesn't necessarily receive
- []
-
-
-Underfull \hbox (badness 4699) in paragraph at lines 65--66
-\OT1/ppl/m/n/11 complete information about the state of the
- []
-
-
-Underfull \hbox (badness 2310) in paragraph at lines 68--71
-\OT1/ppl/m/n/11 constructions in game theory called stochastic
- []
-
-
-Underfull \hbox (badness 4036) in paragraph at lines 68--71
-\OT1/ppl/m/n/11 games [3]. We consider a partially observed
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 68--71
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 68--71
-
+Underfull \hbox (badness 1694) in paragraph at lines 58--59
+\OT1/ppl/m/n/12 its expected sum of long-term, discounted
  []
 
 [2]
-Underfull \hbox (badness 2261) in paragraph at lines 72--73
-[]\OT1/ppl/m/n/11 There are several ways to classify different
+Underfull \hbox (badness 1960) in paragraph at lines 68--69
+\OT1/ppl/m/n/12 is defined by a 7-tuple $\OT1/cmr/m/n/12 (\U/eus/m/n/12 S\OML/c
+mm/m/it/12 ; \U/eus/m/n/12 A\OML/cmm/m/it/12 ; \U/eus/m/n/12 R\OML/cmm/m/it/12 
+; []; \OT1/cmr/m/n/12 
+\OML/cmm/m/it/12 ; \U/eus/m/n/12 O\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 )$\OT1/pp
+l/m/n/12 .
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 72--73
-\OT1/ppl/m/n/11 player, zero-sum games like chess and go. A
+Underfull \hbox (badness 1895) in paragraph at lines 68--69
+\OT1/ppl/m/n/12 environment and all agents. Each agent $\OML/cmm/m/it/12 i$
  []
 
 
-Underfull \hbox (badness 1360) in paragraph at lines 74--75
-\OT1/ppl/m/n/11 according to how much information is shared
+Underfull \hbox (badness 1990) in paragraph at lines 72--73
+\OT1/ppl/m/n/12 like chess and go. A modern cooperative
  []
 
 
-Underfull \hbox (badness 4531) in paragraph at lines 74--75
-\OT1/ppl/m/n/11 between them. On one extreme is the case
+Underfull \hbox (badness 3579) in paragraph at lines 74--75
+\OT1/ppl/m/n/12 Another extreme is the case where each
  []
 
 
-Underfull \hbox (badness 3364) in paragraph at lines 74--75
-\OT1/ppl/m/n/11 of independent learners [4] [5] [6], when no
+Underfull \hbox (badness 3343) in paragraph at lines 76--77
+[]\OT1/ppl/m/n/12 Agents could also be classified by the
  []
 
 
-Underfull \hbox (badness 1953) in paragraph at lines 74--75
-\OT1/ppl/m/n/11 extreme is the case where each agent knows
+Underfull \hbox (badness 8019) in paragraph at lines 76--77
+\OT1/ppl/m/n/12 They could have explicit communication
  []
 
 
-Underfull \hbox (badness 2237) in paragraph at lines 79--80
-\OT1/ppl/m/n/11 do exist that can find optimal agent policies
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
+\OT1/ppl/m/n/12 While classical reinforcement learning
  []
 
 
-Underfull \hbox (badness 3098) in paragraph at lines 79--80
-\OT1/ppl/m/n/11 often too complex to be solved without the
+Underfull \hbox (badness 1931) in paragraph at lines 79--80
+\OT1/ppl/m/n/12 algorithms do exist that can find optimal
  []
 
 
-Underfull \hbox (badness 2495) in paragraph at lines 81--82
-\OT1/ppl/m/n/11 reinforcement learning up to high-dimensional
+Underfull \hbox (badness 7433) in paragraph at lines 79--80
+\OT1/ppl/m/n/12 agent policies in a simple environment,
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 86--87
-\OT1/ppl/m/n/11 of many agents at once. In [23], many non-
+Underfull \hbox (badness 6859) in paragraph at lines 79--80
+\OT1/ppl/m/n/12 and generality of neural networks. This
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
-\OT1/ppl/m/n/11 interacting agents concurrently explore their
+Underfull \hbox (badness 8151) in paragraph at lines 81--82
+\OT1/ppl/m/n/12 from DeepMind successfully utilized the
  []
 
 
-Underfull \hbox (badness 2865) in paragraph at lines 88--89
-[]\OT1/ppl/m/n/11 Instead of using many parallel single-agent
+Underfull \hbox (badness 3460) in paragraph at lines 81--82
+\OT1/ppl/m/n/12 video games directly from pixels on the
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 88--89
-\OT1/ppl/m/n/11 pressures of competition and resource scarcity.
+Underfull \hbox (badness 1924) in paragraph at lines 84--85
+\OT1/ppl/m/n/12 behavior. In the single-agent setting, basic
  []
 
 
-Underfull \hbox (badness 2409) in paragraph at lines 90--91
-\OT1/ppl/m/n/11 by the environment. Having intrinsic rewards
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
+\OT1/ppl/m/n/12 exploration strategies include occasionally
  []
 
 
-Underfull \hbox (badness 2205) in paragraph at lines 90--91
-\OT1/ppl/m/n/11 is the idea of curiosity, wherein an agent is
+Underfull \hbox (badness 2245) in paragraph at lines 84--85
+\OT1/ppl/m/n/12 uncertainty in action value estimates [20].
  []
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 93--94
-\OT1/ppl/m/n/11 they have not received many times before. It
+Underfull \hbox (badness 3612) in paragraph at lines 84--85
+\OT1/ppl/m/n/12 In many ways, these basic ideas remain
  []
 
 
-Underfull \hbox (badness 1668) in paragraph at lines 93--94
-\OT1/ppl/m/n/11 networks called the ``target network'' and the
+Underfull \hbox (badness 1755) in paragraph at lines 84--85
+\OT1/ppl/m/n/12 state of the art for the general case. For
+ []
+
+
+Underfull \hbox (badness 4084) in paragraph at lines 86--87
+[]\OT1/ppl/m/n/12 Several modern methods of exploration
+ []
+
+
+Underfull \hbox (badness 2717) in paragraph at lines 86--87
+\OT1/ppl/m/n/12 non-interacting agents concurrently explore
+ []
+
+
+Underfull \hbox (badness 3657) in paragraph at lines 86--87
+\OT1/ppl/m/n/12 in [24], except diversity of experience is
  []
 
 [3]
-Underfull \hbox (badness 1412) in paragraph at lines 95--96
-\OT1/ppl/m/n/11 and its effectiveness. Simple both conceptually
+Underfull \hbox (badness 5374) in paragraph at lines 88--89
+[]\OT1/ppl/m/n/12 Instead of using many parallel single-
  []
 
 
-Underfull \hbox (badness 1990) in paragraph at lines 95--96
-\OT1/ppl/m/n/11 of Montezuma's Revenge, a famously difficult
+Underfull \hbox (badness 1552) in paragraph at lines 88--89
+\OT1/ppl/m/n/12 They drive exploration through population
  []
 
 
-Underfull \hbox (badness 1389) in paragraph at lines 95--96
-\OT1/ppl/m/n/11 exploration Atari game, without learning from
+Underfull \hbox (badness 1635) in paragraph at lines 90--91
+[]\OT1/ppl/m/n/12 Much recent research has been done in
  []
 
 
-Underfull \hbox (badness 2707) in paragraph at lines 100--101
-\OT1/ppl/m/n/11 in our experiments is shown in Fig. 1[]. The
+Underfull \hbox (badness 4048) in paragraph at lines 90--91
+\OT1/ppl/m/n/12 the realm of intrinsic motivation. Agents
+ []
+
+
+Underfull \hbox (badness 2057) in paragraph at lines 90--91
+\OT1/ppl/m/n/12 that are intrinsically motivated attempt to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
+\OT1/ppl/m/n/12 the (extrinsic) rewards provided by the
+ []
+
+
+Underfull \hbox (badness 6300) in paragraph at lines 90--91
+\OT1/ppl/m/n/12 environment. Having intrinsic rewards is
+ []
+
+
+Underfull \hbox (badness 7326) in paragraph at lines 90--91
+\OT1/ppl/m/n/12 extrinsic rewards. One form of intrinsic
+ []
+
+
+Underfull \hbox (badness 3068) in paragraph at lines 90--91
+\OT1/ppl/m/n/12 observations. It could, for example, favor
+ []
+
+
+Underfull \hbox (badness 5908) in paragraph at lines 93--94
+\OT1/ppl/m/n/12 We make use of one form of intrinsic
+ []
+
+
+Underfull \hbox (badness 5711) in paragraph at lines 93--94
+\OT1/ppl/m/n/12 motivation in this paper: exploration by
+ []
+
+
+Underfull \hbox (badness 3302) in paragraph at lines 93--94
+\OT1/ppl/m/n/12 received many times before. It does this
+ []
+
+
+Underfull \hbox (badness 3907) in paragraph at lines 93--94
+\OT1/ppl/m/n/12 through the use of two auxiliary neural
+ []
+
+
+Underfull \hbox (badness 1881) in paragraph at lines 93--94
+\OT1/ppl/m/n/12 networks approaches zero for observations
+ []
+
+
+Underfull \hbox (badness 2503) in paragraph at lines 95--96
+[]\OT1/ppl/m/n/12 RND was chosen in this paper for its
+ []
+
+
+Underfull \hbox (badness 1527) in paragraph at lines 95--96
+\OT1/ppl/m/n/12 candidate for use in a simple one-quarter
+ []
+
+
+Underfull \hbox (badness 7047) in paragraph at lines 95--96
+\OT1/ppl/m/n/12 project. Additionally, at the time of its
+ []
+
+
+Underfull \hbox (badness 5388) in paragraph at lines 95--96
+\OT1/ppl/m/n/12 publication, it was the state of the art
+ []
+
+
+Underfull \hbox (badness 4036) in paragraph at lines 98--99
+\OT1/ppl/m/n/12 As pointed out in [25], though popular,
  []
 
 <grid.png, id=28, 602.25pt x 602.25pt>
 File: grid.png Graphic file (type png)
 <use grid.png>
-Package pdftex.def Info: grid.png  used on input line 106.
+Package pdftex.def Info: grid.png  used on input line 104.
 (pdftex.def)             Requested size: 201.59999pt x 201.60107pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--105
+\OT1/phv/m/n/12 Fig. 1. A simple grid environment that
+ []
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+
+Underfull \hbox (badness 5316) in paragraph at lines 109--110
+[]\OT1/ppl/m/n/12 Having most states map to the same
+ []
+
+
+Underfull \hbox (badness 4193) in paragraph at lines 109--110
+\OT1/ppl/m/n/12 featureless observation and having sparse
+ []
+
+
+Underfull \hbox (badness 2065) in paragraph at lines 112--113
+\OT1/ppl/m/n/12 We introduce a possibly new method for
+ []
+
+
+Underfull \hbox (badness 3260) in paragraph at lines 112--113
+\OT1/ppl/m/n/12 agent moves, it changes the environment
+ []
+
+[4]
+Underfull \hbox (badness 3088) in paragraph at lines 114--115
+\OT1/ppl/m/n/12 block, within the agent's neural network.
+ []
+
+
+Underfull \hbox (badness 4492) in paragraph at lines 114--115
+\OT1/ppl/m/n/12 These blocks learn to maintain a useful
+ []
+
+
+Underfull \hbox (badness 2073) in paragraph at lines 114--115
+\OT1/ppl/m/n/12 this architecture, however, limits an agent
+ []
+
+
+Underfull \hbox (badness 3536) in paragraph at lines 116--117
+[]\OT1/ppl/m/n/12 As mentioned above, there are already
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
+\OT1/ppl/m/n/12 several possible communication methods
+ []
+
+
+Underfull \hbox (badness 2285) in paragraph at lines 116--117
+\OT1/ppl/m/n/12 information without the aid of something
+ []
+
+
+Underfull \hbox (badness 5667) in paragraph at lines 116--117
+\OT1/ppl/m/n/12 like an LSTM block. The motivation of
+ []
+
+
+Underfull \hbox (badness 7397) in paragraph at lines 118--119
+[]\OT1/ppl/m/n/12 Two variants of this idea are tested.
+ []
+
+
+Underfull \hbox (badness 4366) in paragraph at lines 118--119
+\OT1/ppl/m/n/12 affects the environment's reward function
+ []
+
+
+Underfull \hbox (badness 1521) in paragraph at lines 118--119
+\OT1/ppl/m/n/12 in states where a trail marker still exists.
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 118--119
+\OT1/ppl/m/n/12 To promote exploration, these rewards are
+ []
+
+
+Underfull \hbox (badness 3930) in paragraph at lines 122--123
+[]\OT1/ppl/m/n/12 Both variants are tried both with and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+\OT1/ppl/m/n/12 without the addition of RND intrinsic
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+\OT1/ppl/m/n/12 motivation, making four different types
+ []
+
+
+Underfull \hbox (badness 7576) in paragraph at lines 126--127
+\OT1/ppl/m/n/12 We ran single-agent experiments for all
+ []
+
+
+Underfull \hbox (badness 7379) in paragraph at lines 126--127
+\OT1/ppl/m/n/12 type, we collected both raw state visit
+ []
+
+
+Underfull \hbox (badness 6428) in paragraph at lines 128--129
+\OT1/ppl/m/n/12 difference between them. Specifically, the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5 <./grid.png (PNG copy)>]
+Underfull \hbox (badness 4279) in paragraph at lines 156--157
+[]\OT1/ppl/m/n/12 Surprisingly, raw state visitation counts
+ []
+
+
+Underfull \hbox (badness 3930) in paragraph at lines 163--164
+\OT1/ppl/m/n/12 We have presented what we think is a
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+\OT1/ppl/m/n/12 novel method for successfully exploring
+ []
+
+
+Underfull \hbox (badness 2285) in paragraph at lines 163--164
+\OT1/ppl/m/n/12 POMDPs with a large number of aliased
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
+[]\OT1/ppl/m/n/12 Beyond searching for the best
+ []
+
+
+Underfull \hbox (badness 6775) in paragraph at lines 167--168
+\OT1/ppl/m/n/12 architecture/method, a search also needs
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 169.
+
+(/usr/local/share/miktex-texmf/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 2941) in paragraph at lines 169--170
+[]\OT1/ppl/m/n/12 Code for this project can be found at
+ []
+
+
+Overfull \hbox (17.39989pt too wide) in paragraph at lines 169--170
+\OT1/pcr/m/n/12 github.com/philiptkd/stat_exploration\OT1/ppl/m/n/12 . 
+ []
+
 (report.bbl
-Underfull \hbox (badness 1796) in paragraph at lines 4--6
+Underfull \hbox (badness 1701) in paragraph at lines 4--6
 []\OT1/ppl/m/n/9 Y. Burda, H. Edwards, A. Storkey, and O. Klimov,
  []
 
 
-Underfull \hbox (badness 1668) in paragraph at lines 12--14
+Underfull \hbox (badness 1571) in paragraph at lines 12--14
 []\OT1/ppl/m/n/9 L. S. Shapley, ``Stochastic games,'' \OT1/ppl/m/it/9 Proceedin
 gs of the
  []
 
-
-Underfull \hbox (badness 3838) in paragraph at lines 16--19
+[6]
+Underfull \hbox (badness 3679) in paragraph at lines 16--19
 []\OT1/ppl/m/n/9 T. Bansal, J. Pachocki, S. Sidor, I. Sutskever, and
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 16--19
+Underfull \hbox (badness 3679) in paragraph at lines 16--19
 \OT1/ppl/m/n/9 I. Mordatch, ``Emergent complexity via multi-agent
  []
 
 
-Underfull \hbox (badness 3826) in paragraph at lines 26--29
+Underfull \hbox (badness 3646) in paragraph at lines 26--29
 []\OT1/ppl/m/n/9 A. Tampuu, T. Matiisen, D. Kodelja, I. Kuzovkin,
  []
 
 
-Underfull \hbox (badness 2221) in paragraph at lines 36--38
+Underfull \hbox (badness 2096) in paragraph at lines 36--38
 []\OT1/ppl/m/n/9 S. Sukhbaatar, A. Szlam, and R. Fergus, ``Learning
  []
 
 
-Underfull \hbox (badness 4832) in paragraph at lines 40--43
+Underfull \hbox (badness 4660) in paragraph at lines 40--43
 []\OT1/ppl/m/n/9 J. N. Foerster, Y. M. Assael, N. de Freitas, and
  []
 
-[4 <./grid.png (PNG copy)>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 50--53
 \OT1/ppl/m/n/9 I. Mordatch, ``Multi-agent actor-critic for mixed
  []
@@ -627,12 +971,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--53
  []
 
 
-Underfull \hbox (badness 1859) in paragraph at lines 55--58
+Underfull \hbox (badness 1708) in paragraph at lines 55--58
 \OT1/ppl/m/n/9 and S. Whiteson, ``Counterfactual multi-agent policy
  []
 
 
-Underfull \hbox (badness 2717) in paragraph at lines 65--68
+Underfull \hbox (badness 2591) in paragraph at lines 65--68
 []\OT1/ppl/m/n/9 R. Raileanu, E. Denton, A. Szlam, and R. Fergus,
  []
 
@@ -642,23 +986,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--68
  []
 
 
-Underfull \hbox (badness 5548) in paragraph at lines 65--68
+Underfull \hbox (badness 5147) in paragraph at lines 65--68
 \OT1/ppl/m/n/9 reinforcement learning,'' \OT1/ppl/m/it/9 CoRR\OT1/ppl/m/n/9 , v
 ol. abs/1802.09640,
  []
 
 
-Underfull \hbox (badness 2726) in paragraph at lines 79--84
+Underfull \hbox (badness 2608) in paragraph at lines 79--84
 \OT1/ppl/m/n/9 M. G. Bellemare, A. Graves, M. Riedmiller, A. K.
  []
 
 
-Underfull \hbox (badness 1609) in paragraph at lines 89--91
+Underfull \hbox (badness 1472) in paragraph at lines 89--91
 []\OT1/ppl/m/n/9 R. Sutton, ``Generalization in reinforcement learning:
  []
 
 
-Underfull \hbox (badness 1776) in paragraph at lines 97--101
+Underfull \hbox (badness 1688) in paragraph at lines 97--101
 \OT1/ppl/m/n/9 Y. Duan, J. Schulman, F. D. Turck, and P. Abbeel,
  []
 
@@ -668,7 +1012,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--106
  []
 
 
-Underfull \hbox (badness 4726) in paragraph at lines 103--106
+Underfull \hbox (badness 4441) in paragraph at lines 103--106
 \OT1/ppl/m/n/9 based exploration and intrinsic motivation,'' \OT1/ppl/m/it/9 Co
 RR\OT1/ppl/m/n/9 ,
  []
@@ -680,12 +1024,12 @@ OT1/ppl/m/n/9 ,
  []
 
 
-Underfull \hbox (badness 4328) in paragraph at lines 113--116
+Underfull \hbox (badness 4001) in paragraph at lines 113--116
 \OT1/ppl/m/n/9 coordinated exploration in concurrent reinforcement
  []
 
 
-Underfull \hbox (badness 2096) in paragraph at lines 118--122
+Underfull \hbox (badness 1990) in paragraph at lines 118--122
 []\OT1/ppl/m/n/9 J. Z. Leibo, J. P[]erolat, E. Hughes, S. Wheelwright,
  []
 
@@ -700,39 +1044,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--136
  []
 
 
-Underfull \hbox (badness 1484) in paragraph at lines 138--140
+Underfull \hbox (badness 1377) in paragraph at lines 138--140
 []\OT1/ppl/m/n/9 S. Hochreiter and J. Schmidhuber, ``Long short-term
  []
 
-) [5] (report.aux) ) 
+) [7] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 4070 strings out of 494865
- 60535 string characters out of 3178605
- 129380 words of memory out of 3000000
- 7601 multiletter control sequences out of 15000+200000
- 55309 words of font info for 140 fonts, out of 3000000 for 9000
+ 4111 strings out of 494865
+ 61065 string characters out of 3178605
+ 128384 words of memory out of 3000000
+ 7635 multiletter control sequences out of 15000+200000
+ 58052 words of font info for 150 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 41i,7n,27p,944b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,9n,27p,939b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/share/miktex-texmf/fonts/enc/dvips/base/8r.enc}
 </usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
-local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/
+local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/
 share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/share/m
 iktex-texmf/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/share/miktex
--texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/share/miktex-texmf/
+-texmf/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/share/miktex-texmf/
 fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/share/miktex-texmf/fonts/ty
 pe1/public/amsfonts/cm/cmsy10.pfb></usr/local/share/miktex-texmf/fonts/type1/pu
 blic/amsfonts/cm/cmsy8.pfb></usr/local/share/miktex-texmf/fonts/type1/public/am
 sfonts/cm/cmsy9.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/
 euler/eusb10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/eul
 er/eusm10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/symbol
-s/msbm10.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/helvetic/uhvb8a.pfb
-></usr/local/share/miktex-texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local
-/share/miktex-texmf/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/share/mikte
-x-texmf/fonts/type1/urw/palatino/uplri8a.pfb></usr/local/share/miktex-texmf/fon
-ts/type1/urw/zapfding/uzdr.pfb>
-Output written on report.pdf (5 pages, 180697 bytes).
+s/msbm10.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/courier/ucrr8a.pfb>
+</usr/local/share/miktex-texmf/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/
+share/miktex-texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/share/miktex
+-texmf/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/share/miktex-texmf/fonts
+/type1/urw/palatino/uplri8a.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/
+zapfding/uzdr.pfb>
+Output written on report.pdf (7 pages, 201616 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
+ 100 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
